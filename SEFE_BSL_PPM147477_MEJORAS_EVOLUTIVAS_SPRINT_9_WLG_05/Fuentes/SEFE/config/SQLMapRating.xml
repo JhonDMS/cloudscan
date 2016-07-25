@@ -1,0 +1,2796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Rating">
+<!-- #############RESULT MAPS######################################################################################-->
+		<resultMap id="ratingFinanciero" class="RatingFinanciero">
+			<result property="idRating" column="RTG_FINAN_ID" />
+		</resultMap>
+		
+		<resultMap id="ModIndRtgGrupalMap" class="ModIndRtgGrupal">
+			<result property="modeloEvaluacionId" column="TIPO_RTG_GRUPAL" />
+			<result property="componenteId" column="COMPONENTE_ID" />
+			<result property="aplicaCalculo" column="APLICA_CALCULO" />
+		</resultMap>
+		
+		<resultMap id="paramFortalezaDebilidad" class="ParamFortalezaDebilidad">
+			<result property="ambito" column="AMBITO"/>
+			<result property="idBanca" column="ID_BANCA"/>
+			<result property="alfa" column="ALFA"/>
+			<result property="beta" column="BETA"/>
+			<result property="x" column="X"/>
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA"/>
+			<result property="fechaFin" column="FECHA_FIN"/>
+		</resultMap>
+		
+		<resultMap id="mapTodoFortalezaDebilidad" class="FortalezaYDebilidad">
+			<result property="flgFortalezaDebilidad" column="COD_FORTALEZA_DEBILIDAD"/>
+			<result property="pregunta" column="PREGUNTA"/>
+			<result property="respuesta" column="RESPUESTA"/>
+			<result property="ambito" column="AMBITO"/>
+			<result property="idCliente" column="ID_CLIENTE"/>
+			<result property="idRatingInd" column="ID_RATING_IND"/>
+			<result property="idPreguntaInd" column="SID_PREGUNTA"/>
+			<result property="pesoRelativo" column="PESO_RELATIVO"/>
+		</resultMap>
+		
+			
+		
+		<!-- Mapea todos los campos de un rating individual -->
+		<resultMap id="RatingIndividualmap" class="RatingIndividual" >
+			<result property="idCliente" column="ID_CLIENTE"/>
+			<result property="idRating" column="ID_RATING"/>
+			<result property="ratingFinal" column="RTG_FINAL"/>
+			<result property="ratingFinalSugerido" column="RTG_SUGERIDO"/>
+			<result property="fechaCreacion" column="FEC_CREACION"/>
+			<result property="fechaCambioEstado" column="FEC_ESTADO"/>
+			<result property="fechaModificacion" column="FEC_MODIF"/>
+			<result property="ratingAproxFinal" column="RTG_APP_FINAL"/>
+			<result property="prcDisminucionIVA" column="PRC_VTA"/>
+			<result property="ratingPreliminar1" column="RTG_PRELIM1"/>
+			<result property="ratingPreliminar2" column="RTG_PRELIM2"/>
+			<result property="prcRatingNegocio" column="POND_NEG"/>
+			<result property="prcRatingProyectado" column="POND_PROYEC"/>
+			<result property="prcRatingComportamiento" column="POND_CPMTO"/>
+			<result property="prcRatingFinanciero" column="POND_FINAN"/>
+			<result property="premioTamano" column="PREM_TAMANO"/>
+			<result property="ajusteEscala" column="AJT_ESCALA"/>
+			<result property="montoVenta" column="MONTO_VTA"/>
+			<result property="montoPatrimonio" column="MONTO_PATRM"/>
+			<result property="ratingNegocio" column="RTG_NEG"/>
+			<result property="ratingComportamiento" column="RTG_CPMTO"/>
+			<result property="ratingFinanciero" column="RTG_FINAN"/>
+			<result property="ratingProyectado" column="RTG_PROYEC"/>
+			<result property="fechaRatingFinanciero" column="FECH_RTG_FINAN"/>
+			<result property="fechaRatingProyectado" column="FECH_RTG_PROYEC"/>
+			<result property="fechaRatingNegocio" column="FECH_RTG_NEG"/>
+			<result property="fechaRatingComportamiento" column="FECH_RTG_CPMTO"/>
+			<result property="comentario" column="COMENTARIO"/>
+			<result property="idUsuario" column="USU_ID"/>
+			<result property="idUsuarioModificacion" column="USU_MODIF_ID"/>
+			<result property="idEstado" column="EST_ID"/>
+			<result property="idRatingFinanciero" column="RTG_FINAN_ID"/>
+			<result property="periodoVac0" column="VAC_ID0"/>
+			<result property="deudaBanco" column="DEU_BCO"/>
+			<result property="deudaSBIF" column="DEU_SBIF"/>
+			<result property="deudaSinHipotBanco" column="DEU_SIN_HIP_BCO"/>
+			<result property="deudaSinHipotSBIF" column="DEU_SIN_HIP_SBIF"/>
+			<result property="deudaACHEL" column="DEU_ACHEL"/>
+			<result property="periodoVac1" column="VAC_ID1"/>
+			<result property="periodoVac2" column="VAC_ID2"/>
+			<result property="nivelVenta" column="NVL_DE_VTA"/>
+			<result property="idMotivoModifRating" column="MOT_MODIF_ID"/>
+			<result property="idRatingNegocio" column="RTG_NEGO_ID"/>
+			<result property="idBanca" column="BANCA_ID"/>
+			<result property="idRatingComportamiento" column="RTG_CPMTO_ID"/>
+			<result property="comentarioModificacion" column="COMENT_MODIF"/>
+			<result property="montoActivos" column="MONT_ACTIVOS"/>
+			<result property="rut" column="RUT"/>
+			<result property="nombreResponsable" column="RESPONSABLE"/>
+			<result property="estado" column="ESTADO"/>
+			<result property="banca" column="BANCA"/>
+			<result property="idRatingProyectado" column="ID_PROY"/>
+			<result property="idRatingGarante" column="ID_GARANTE"/>
+			<result property="ratingGarante" column="NOTA_GARANTE"/>
+			<result property="fechaRatingGarante" column="FECHA_GARANTE"/>
+			<result property="idTipoVaciadoRatingNegocio" column="TIPO_VAC_RATING_NEG"/>
+			<result property="fechaAvance" column="FECHA_AVANCE_CONS_INMO"/>
+			<result property="idVaciadoAgricola" column="ID_VACIADO_AGRICOLA"/>
+		</resultMap>
+		
+		<!-- sprint1 req:7.2.15 ficha financiera -->
+		<resultMap id="RatingIndividualmapExt" class="RatingIndividual" >
+			<result property="idCliente" column="ID_CLIENTE"/>
+			<result property="idRating" column="ID_RATING"/>
+			<result property="ratingFinal" column="RTG_FINAL"/>
+			<result property="ratingFinalSugerido" column="RTG_SUGERIDO"/>
+			<result property="fechaCreacion" column="FEC_CREACION"/>
+			<result property="fechaCambioEstado" column="FEC_ESTADO"/>
+			<result property="fechaModificacion" column="FEC_MODIF"/>
+			<result property="ratingAproxFinal" column="RTG_APP_FINAL"/>
+			<result property="prcDisminucionIVA" column="PRC_VTA"/>
+			<result property="ratingPreliminar1" column="RTG_PRELIM1"/>
+			<result property="ratingPreliminar2" column="RTG_PRELIM2"/>
+			<result property="prcRatingNegocio" column="POND_NEG"/>
+			<result property="prcRatingProyectado" column="POND_PROYEC"/>
+			<result property="prcRatingComportamiento" column="POND_CPMTO"/>
+			<result property="prcRatingFinanciero" column="POND_FINAN"/>
+			<result property="premioTamano" column="PREM_TAMANO"/>
+			<result property="ajusteEscala" column="AJT_ESCALA"/>
+			<result property="montoVenta" column="MONTO_VTA"/>
+			<result property="montoPatrimonio" column="MONTO_PATRM"/>
+			<result property="ratingNegocio" column="RTG_NEG"/>
+			<result property="ratingComportamiento" column="RTG_CPMTO"/>
+			<result property="ratingFinanciero" column="RTG_FINAN"/>
+			<result property="ratingProyectado" column="RTG_PROYEC"/>
+			<result property="fechaRatingFinanciero" column="FECH_RTG_FINAN"/>
+			<result property="fechaRatingProyectado" column="FECH_RTG_PROYEC"/>
+			<result property="fechaRatingNegocio" column="FECH_RTG_NEG"/>
+			<result property="fechaRatingComportamiento" column="FECH_RTG_CPMTO"/>
+			<result property="comentario" column="COMENTARIO"/>
+			<result property="idUsuario" column="USU_ID"/>
+			<result property="idUsuarioModificacion" column="USU_MODIF_ID"/>
+			<result property="idEstado" column="EST_ID"/>
+			<result property="idRatingFinanciero" column="RTG_FINAN_ID"/>
+			<result property="periodoVac0" column="VAC_ID0"/>
+			<result property="deudaBanco" column="DEU_BCO"/>
+			<result property="deudaSBIF" column="DEU_SBIF"/>
+			<result property="deudaSinHipotBanco" column="DEU_SIN_HIP_BCO"/>
+			<result property="deudaSinHipotSBIF" column="DEU_SIN_HIP_SBIF"/>
+			<result property="deudaACHEL" column="DEU_ACHEL"/>
+			<result property="periodoVac1" column="VAC_ID1"/>
+			<result property="periodoVac2" column="VAC_ID2"/>
+			<result property="nivelVenta" column="NVL_DE_VTA"/>
+			<result property="idMotivoModifRating" column="MOT_MODIF_ID"/>
+			<result property="idRatingNegocio" column="RTG_NEGO_ID"/>
+			<result property="idBanca" column="BANCA_ID"/>
+			<result property="idRatingComportamiento" column="RTG_CPMTO_ID"/>
+			<result property="comentarioModificacion" column="COMENT_MODIF"/>
+			<result property="montoActivos" column="MONT_ACTIVOS"/>
+			<result property="rut" column="RUT"/>
+			<result property="nombreResponsable" column="RESPONSABLE"/>
+			<result property="estado" column="ESTADO"/>
+			<result property="banca" column="BANCA"/>
+			<result property="idRatingProyectado" column="ID_PROY"/>
+			<result property="idRatingGarante" column="ID_GARANTE"/>
+			<result property="ratingGarante" column="NOTA_GARANTE"/>
+			<result property="fechaRatingGarante" column="FECHA_GARANTE"/>
+			<result property="idTipoVaciadoRatingNegocio" column="TIPO_VAC_RATING_NEG"/>
+			<result property="fechaAvance" column="FECHA_AVANCE_CONS_INMO"/>
+			<result property="clasifNombre" column="NOMBRE"/>	<!-- sprint1 req:7.2.15 ficha financiera -->
+			<result property="idClasif" column="CLASIF_ID"/>	<!-- sprint1 req:7.2.15 ficha financiera -->
+		</resultMap>
+		
+		<resultMap id="premioPatrimonioMap" class="PremioPatrimonio">
+			<result property="idSegmento" column="ID_SEGMENTO"/>
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA"/>
+			<result property="fechaFin" column="FECHA_FIN"/>
+			<result property="puntos" column="PUNTOS"/>
+		</resultMap>
+		
+		<resultMap id="equivalenciaRatingMap" class="EquivalenciaRating">
+			<result property="idEquivalencia" column="ID_EQUIVALENCIA"/>
+			<result property="ratingPreliminar" column="RTG_PRELIMINAR"/>
+			<result property="ratingFinal" column="RTG_FINAL"/>
+			<result property="probabilidadDefault" column="PROBABILIDAD_DEFAULT"/>
+		</resultMap>
+		
+		<resultMap id="componenteRatingMap" class="ComponenteRating">
+			<result property="idBanca" column="PTLLA_ID"/>
+			<result property="idComponente" column="COMPONENTE_ID"/>
+			<result property="aplicaFlag" column="APLICA_F"/>
+			<result property="obligatorioF" column="OBLIGATORIO_F"/>
+			<result property="cierreManualF" column="PRERR_MANUAL_F"/>
+		</resultMap>
+		
+	
+		
+		<resultMap id="biMap" class="BalanceInmobiliario">
+			<result property="idParteInvol" column="IDPARTEINVOL"/>
+			<result property="fechaAvance" column="FECHA_AVANCE"/>
+			<result property="estado" column="ESTADO"/>
+			<result property="fechaEstado" column="FECHA_ESTADO"/>
+			<result property="usuario" column="USUARIO"/>
+			<result property="moneda" column="MONEDA"/>
+			<result property="unidad" column="UNIDAD"/>
+			<result property="idEstado" column="EST_ID"/>
+			<result property="deudaSistema" column="DEUDA_SISTEMA"/>
+		</resultMap>
+			
+		<resultMap  id="ratingIndividual" class="RatingIndividual">
+			<result property="rut" column="RUT" />
+			<result property="idRating" column="ID_RATING_INDIVIDUAL"/>
+			<result property="banca" column="BANCA"/>
+			<result property="idBanca" column="ID_BANCA"/>
+			<result property="fechaModificacion" column="FECHA_MODIF"/>
+			<result property="fechaCreacion" column="FECHA_CREACION"/>
+			<result property="fechaCambioEstado" column="FEC_ESTADO"/>
+			<result property="ratingFinal" column="RATING_INDIVIDUAL"/>
+			<result property="ratingFinalSugerido" column="RATING_IND_SUGERIDO"/>
+			<result property="estado" column="ESTADO_STR"/>
+			<result property="idEstado" column="ESTADO_ID"/>
+			<result property="idRatingFinanciero" column="ID_FINANCIERO"/>
+			<result property="idRatingProyectado" column="ID_FINANCIERO_PROY"/>
+			<result property="idRatingNegocio" column="ID_NEGOCIO"/>
+			<result property="idRatingComportamiento" column="ID_COMPORTAMIENTO"/>
+			<result property="ratingFinanciero" column="NOTA_RTG_FINAN" />
+			<result property="ratingProyectado" column="NOTA_RTG_FINAN_PROY" />
+			<result property="ratingNegocio" column="NOTA_RTG_NEG" />
+			<result property="ratingComportamiento" column="NOTA_RTG_COMP" />
+			<result property="fechaEEFF" column="FECHA_EEFF" />
+			<result property="nombreResponsable" column="RESPONSABLE_RTG_IND" />
+			<result property="fechaRatingComportamiento" column="FECHA_RTG_COMP"/>
+			<result property="fechaRatingFinanciero" column="FECHA_RTG_FINAN"/>
+			<result property="fechaRatingNegocio" column="FECHA_RTG_NEG"/>
+			<result property="fechaRatingProyectado" column="FECHA_RTG_PROY"/>
+			<result property="idRatingGarante" column="ID_GARANTE"/>
+			<result property="ratingGarante" column="NOTA_GARANTE"/>
+			<result property="idTipoVaciadoRatingNegocio" column="TIPO_VAC_RATING_NEG"/>
+			<result property="fechaAvance" column="FECHA_AVANCE"/>
+		</resultMap>
+		
+		<resultMap id="ratingGrupalMap" class="RatingGrupal">
+			<result property="idParteInvolucrada" column="ID_PARTE_INVOL" />
+			<result property="rut" column="RUT" />
+			<result property="fecha" column="FECHA" />
+			<result property="notaGrupal" column="NOTA_GRUPAL" />
+			<result property="nota" column="NOTA_GRUPAL" />
+			<result property="estado" column="ESTADO_STR" />
+			<result property="idEstado" column="ESTADO_ID" />
+			<result property="responsable" column="RESPONSABLE"/>
+			<result property="idRatingGrupal" column="ID_GRUPAL"/>
+		</resultMap>
+
+		<resultMap id="ratingFinancieroMap" class="RatingFinanciero">
+			<result property="flagConsolidado"			column="CONSOLIDADO"/>
+			<result property="fechaBalance"				column="FECHA_BALANCE"/>
+			<result property="fechaRating"				column="FECHA_RTG_FINANC"/>
+			<result property="idMatriz"					column="ID_MATRIZ"/>
+			<result property="montoVentas"				column="MTO_VENTAS"/>
+			<result property="notaPeriodo2"				column="NOTA_FINANC_2"/>
+			<result property="numeroMeses"				column="NUM_MESES"/>
+			<result property="notaFinanciera"			column="NOTA_RATING"/>
+			<result property="notaPeriodo0"				column="NOTA_FINANC_0"/>
+			<result property="notaPeriodo1"				column="NOTA_FINANC_1"/>
+			<result property="notaFinancieraSinPRO"		column="NOTA_FINANC_SP"/>
+			<result property="notaSinTope"				column="NOTA_FINANC_ST"/> 
+			<result property="pesoPeriodo2"				column="PRC_VAC_2"/>
+			<result property="pesoPeriodo0"				column="PRC_VAC_0"/>
+			<result property="pesoPeriodo1"				column="PRC_VAC_1"/>
+			<result property="prcVarDeudaSBIF"			column="PORC_VAR_DEU_SBIF"/>
+			<result property="prcVarVentasIVA"			column="PORC_VAR_VTAS_IVA"/>
+			<result property="prcVentasSobrePasivos"	column="PORC_VTAS_PASIVOS"/>
+			<result property="idRating"					column="ID_RATING"/>
+			<result property="notaProyectada"			column="NOTA_RATING_PROY"/>
+			<result property="idUsuario"				column="ID_USUARIO"/>
+			<result property="responsable"				column="RESPONSABLE"/>
+			<result property="idVacProyectado"			column="ID_VAC_PROY"/>
+			<result property="idVaciado0"				column="ID_VAC_0"/>
+			<result property="idVaciado2"				column="ID_VAC_2"/>
+			<result property="idVaciado1"				column="ID_VAC_1"/>
+			<result property="estado"					column="ESTADO"/>
+			<result property="idProyectado"				column="ID_PROYECTADO"/>
+		</resultMap>
+
+		<resultMap id="ratingNegocioMap" class="RatingNegocio">
+			<result property="idCliente"			column="ID_CLIENTE"/>
+			<result property="idRating" 			column="ID_RATING_NEGOCIO" />
+			<result property="idMatriz" 			column="ID_MATRIZ" />
+			<result property="fechaEvaluacion" 		column="FECHA" />
+			<result property="notaNegocio" 			column="RATING" />
+			<result property="idUsuario" 			column="ID_USUARIO" />
+			<result property="notaNegocioSinTope" 	column="RATING_SIN_TOPE" />
+			<result property="estado" 				column="ESTADO" />
+		</resultMap>
+		
+		<resultMap id="ratingComportamientoMap" class="RatingComportamiento">
+			<result property="fechaEvaluacion" column="FECHA"/> 
+			<result property="notaComp0m" column="NOTA_0M"/> 
+			<result property="notaComp6m" column="NOTA_6M"/> 
+			<result property="idCliente" column="ID_CLIENTE"/>
+			<result property="idPuntajeCaritas" column="ID_CARITAS"/>
+			<result property="puntajeSiebel" column="PTJ_CARITAS"/>
+			<result property="ratingComportamiento" column="NOTA_COMPORTAMIENTO"/> 
+			<result property="idComportamiento6m" column="ID_NOTA_6M"/> 
+			<result property="idRating" column="ID_RATING"/> 
+			<result property="idUsuario" column="ID_USUARIO"/>
+			<result property="porcentajeAjusteComportamiento" column="PRC_AJUSTE"/>
+			<result property="fechaPuntajeSiebel" column="FECHA_PJE_SIEBEL"/>
+			<result property="deudaSBIF" column="DEUDA_DIR_SBIF"/>
+			<result property="deudaBanco" column="DEUDA_DIR_BANCO"/>
+			<result property="descripcionSiebel" column="DESCRIPCION"/>
+		</resultMap>
+		
+		<!-- Mapas de resultado para Rating Garante -->
+		<resultMap id="ratingGaranteMap" class="RatingGarante">
+			<result property="clienteId"         column="CLIENTE_ID"/>
+			<result property="secuenciaRating"   column="ID_GARANTE"/>
+			<result property="fechaEfectiva"      column="DESDE"/>
+			<result property="fechaFin"          column="HASTA"/>
+			<result property="usuarioId"         column="USUARIO_ID"/>
+			<result property="ratingRelevante"   column="RTG_RELEVANTE"/>
+			<result property="ratingBCH"         column="RTG_BANCO"/>
+			<result property="empresaMatriz"     column="EMPRESA"/>
+		</resultMap>
+		
+		<resultMap id="clasificacionRiesgoMap" class="ClasificacionRiesgo">
+			<result property="clasificacionRiesgoId" column="CALIF_RIESGO_ID"/> 
+			<result property="calificadoraId"        column="CALIFICADORA_ID"/> 
+			<result property="clasificacionRiesgo"   column="CLASIFICACION_RIESGO"/> 
+			<result property="ratingBCH"        	 column="RATING_BCH"/> 
+			<result property="fechaEfectiva"         column="FECHA_EFECTIVA"/>
+			<result property="fechaFin"        		 column="FECHA_FIN"/>
+			<result property="usuarioId"        	 column="USUARIO_ID"/>
+			<result property="calificadora"     	 column="CALIFICADORA" />
+			<result property="orden"     	 		 column="ORDEN" />
+    	</resultMap>
+
+    	<resultMap id="calificacionRiesgoMap" class="CalificacionRiesgo">
+			<result property="idCliente" 		column="CLIENTE_ID"/> 
+			<result property="idGarante"        column="GARANTE_ID"/> 
+			<result property="idClasificadora"  column="CLASIFICADORA_ID"/> 
+			<result property="idRiesgo"        	column="RIESGO_ID"/> 
+			<result property="fechaEfectiva"    column="FECHA_EFECTIVA"/>
+    	</resultMap>
+		<!-- Fin Mapas de resultado Rating Garante -->
+			
+		<resultMap id="matrizPjeCaritasMap" class="MatrizPuntajeCaritas">
+			<result property="puntajeCaritasID" column="PTJ_CARITAS_ID" />
+			<result property="descripcion" column="PTJ_CARITAS_DESCRIPCION" />
+			<result property="valorSuperior" column="VAL_SUPERIOR" />
+			<result property="valorInferior" column="VAL_INFERIOR" />
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA" />
+			<result property="fechaFin" column="FECHA_FIN" />
+			<result property="notaRatingComportamiento" column="NOTA_RTG" />
+			<result property="bancaId" column="BANCA_ID" />
+			<result property="segmentoId" column="SGM_ID" />
+		</resultMap>
+		
+		<resultMap id="matrizComportamientoMap" class="MatrizComportamiento">
+			<result property="idMatrizComp" column="MATR_CPMTO_ID" />
+			<result property="idBanca" column="BANCA_ID" />
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA" />
+			<result property="fechaFinal" column="FECHA_FINAL" />
+			<result property="porcentajeAjuste" column="PRC_AJT" />
+		</resultMap>
+		
+		<resultMap id="infoRatInd" class="RatingIndividual">
+			<result property="montoVenta" column="VENTA"/>
+			<result property="montoActivos" column="ACTIVOS"/>
+			<result property="deudaBanco" column="COLOCACION"/>
+			<result property="idEstado" column="ESTADO_ID"/>
+			<result property="estado" column="ESTADO_STR"/>
+			<result property="deudaSBIF" column="COLOCACION_SBIF"/>
+			<result property="montoPatrimonio" column="PATRIMONIO"/>
+			<result property="periodoVac0" column="FECHA_ULTTIMO_BALANCE"/>
+			<!--<result property="balance" column="TIPO_BALANCE_FLG"/>-->
+			<result property="ratingNegocio" column="NOTA_NEGOCIO"/>
+			<result property="responsableRatingNegocio" column="RESPONSABLE_NEGOCIO"/>
+			<result property="fechaRatingNegocio" column="FECHA_NEGOCIO"/>
+			<result property="ratingFinanciero" column="NOTA_FINANCIERO"/>
+			<result property="responsableRatingFinanciero" column="RESPONSABLE_FINANCIERO"/>
+			<result property="fechaRatingFinanciero" column="FECHA_FINANCIERO"/>
+			<result property="ratingComportamiento" column="NOTA_COMPORTAMIENTO"/>
+			<result property="responsableRatingComportamiento" column="RESPONSABLE_COMPORTAMIENTO"/>
+			<result property="fechaRatingComportamiento" column="FECHA_COMPORTAMIENTO"/>
+			<result property="ratingFinal" column="RATING_INDIVIDUAL"/>
+			<result property="ratingFinalSugerido" column="RATING_IND_SUGERIDO"/>
+			<result property="nombreResponsable" column="RESPONSABLE_INDIVIDUAL"/>
+			<result property="fechaModificacion" column="FECHA_INDIVIDUAL"/>
+			<result property="idBanca" column="BANCA_ID"/>
+			<result property="comentarioModificacion" column="MOTIVO"/>
+			<result property="comentario" column="COMENTARIO"/>
+		</resultMap>
+		
+		<resultMap id="fortalezaDebilidadMap" class="FortalezaYDebilidad">
+			<result property="ambito" column="AMBITO"/>
+			<result property="flgFortalezaDebilidad" column="FLG_FORTALEZA_DEBILIDAD"/>
+			<result property="pregunta" column="PREGUNTA"/>
+			<result property="respuesta" column="RESPUESTA"/>
+		</resultMap>
+		
+		<resultMap id="caritasSemanalMap" class="Caritas">
+			<result property="idParteInvolucrada" column="PARTE_INVOL_ID"/>
+			<result property="fechaEvaluacion" column="FECHA_EVAL"/>
+			<result property="puntajeFinal" column="PUNTAJE_FINAL"/>
+			<result property="puntajePonderado" column="PUNTAJE_POND"/>
+			<result property="descripcion" column="DESCRIPCION"/>
+		</resultMap>
+		
+		<resultMap  id="relacionadoRptMap" class="RelacionadoRpt">
+			<result property="rut" column="RUT"/>
+			<result property="nombre" column="NOMBRE"/>
+			<result property="relacion" column="RELACION"/>
+			<result property="participacion" column="PARTICIPACION"/>	
+			<result property="comportamientoPyme" column="COMPORTAMIENTO"/>	
+			<result property="ratingIndividual" column="RATING_INDIVIDUAL"/>
+			<result property="ventas" column="VENTAS"/>
+			<result property="activos" column="ACTIVOS"/>	
+		</resultMap>
+		
+		<resultMap  id="relacionadoNoPymeRptMap" class="RelacionadoRpt">
+			<result property="rut" column="RUT"/>
+			<result property="nombre" column="NOMBRE"/>
+			<result property="ventas" column="VENTAS"/>
+			<result property="activos" column="ACTIVOS"/>
+			<result property="participacion" column="PARTICIPACION"/>	
+			<result property="comportamiento" column="COMPORTAMIENTO"/>	
+			<result property="ratingIndividual" column="RATING_INDIVIDUAL"/>
+			<result property="clasificacion" column="CLASIFICACION"/>	
+		</resultMap>
+		
+		<resultMap id="vaciadoMap" class="Vaciado">
+			<result property="idVaciado" column="VACIADO_ID" />
+			<result property="unidMedida" column="UND_DE_MED_ID" />
+			<result property="fechaEstFinan" column="FECHA_EST" />
+			<result property="fechaCreacion" column="FECHA_CREACION" />
+			<result property="fechaModif" column="FECHA_MODIFICACION" />
+			<result property="idParteInv" column="PARTE_INVOL_ID" />
+			<result property="idParteInvFondo" column="PARTE_INVOL_FONDO_ID" />
+			<result property="mesesPer" column="MESES_PERIODO" />
+			<result property="tipoCargaFlg" column="TIPO_CARGA_FLAG" />
+			<result property="idClasifCalidad" column="CLASIF_CALIDAD_ID" />
+			<result property="idTipoBalance" column="TIPO_BALANCE_ID" />
+			<result property="periodo" column="PERIODO_ID" />
+			<result property="codOperacion" column="CODIGO_OPERACION" />
+			<result property="consolFlg" column="CONSOLIDADO_FLAG" />
+			<result property="idFuenteConsol" column="FUENTE_CONSOLIDADO_ID" />
+			<result property="tipoProyeccion" column="TPO_PROY" />
+			<result property="periodicidadFlg" column="PERIODICIDAD_FLAG" />
+			<result property="ajustadoFlg" column="AJUSTADO_FLAG" />
+			<result property="version" column="VERSION_ID" />
+			<result property="idMoneda" column="MONEDA_ID" />
+			<result property="idAudit" column="AUDITADO_ID" />
+			<result property="idEstado" column="EST_ID" />
+			<result property="idUsuario" column="USU_ID" />
+			<result property="idUsuModif" column="USU_MODIF_ID" />
+			<result property="idOrigenProyec" column="ORIG_PROYECTADO_ID" />
+			<result property="daiFlg" column="DAI_FLAG" />
+			<result property="idNombrePlanCtas" column="NOMBRE_PLAN_DE_CTAS_ID" />
+			<result property="idTpoVaciado" column="TIPO_VACIADO_ID" />
+			<result property="confidFlg" column="CONFIDENCIAL_FLAG"/>
+			<result property="idTipoPlan" column="TPO_PLAN_ID"/>
+		</resultMap>
+		
+		<resultMap id="valorCuentaMap" class="Cuenta">
+			<result property="numCta" column="CTA_ID" />
+			<result property="descripCta" column="DESCRIPCION" />
+			<result property="monto" column="VAL" />
+			<result property="calculadoFlg" column="CALCULADO_F" />
+			<result property="ajuste" column="AJT" />
+			<result property="formula" column="FMLA_CTA" />
+			<result property="codigoCuenta" column="CODIGO_CTA" />
+			<result property="unidad" column="UNIDAD" />
+			<result property="tipoCuenta" column="TPO_CTA_ID" />
+			<result property="formulaRatio" column="FMLA_RATIO" />
+			<result property="nivel" column="NIVEL" />
+			<result property="tipoIndicador" column="TIPO_INDICADOR" />
+		</resultMap>
+		
+		<resultMap id="segmentoMap" class="Segmento" >
+			<result property="idSegmento" column="ID_SEGMENTO"/>
+			<result property="valorInferior" column="VALOR_INFERIOR"/>
+			<result property="valorSuperior" column="VALOR_SUPERIOR"/>
+			<result property="tipoSegmento" column="ID_TIPO_SEGMENTO"/>
+			<result property="nombreSegmento" column="NOMBRE_SEGMENTO"/>
+			<result property="vigente" column="VIGENTE"/>
+			<result property="fechaVigencia" column="FECHA_VIGENTE"/>
+			<result property="idBanca" column="ID_BANCA"/>
+		</resultMap>
+		
+		<resultMap id="ComportamientoHistorico6M" class="RatingComportamiento">
+			<!--<result property="idComportamiento" column=""/> -->
+			<result property="idCliente" column="PARTE_INVOLUCRADA_ID"/>
+			<result property="rutCliente" column="RUT"/>
+			<!--<result property="notaComportamiento" column=""/>-->
+			<!--<result property="fechaNotaComportamiento" column=""/>-->
+			<result property="fechaPuntajeSiebel" column="FECHA_EVALUACION"/>
+			<!--<result property="deudaBanco" column=""/>-->
+			<!--<result property="deudaSBIF" column=""/>-->
+			<result property="puntajeSiebel" column="PUNTAJE_FINAL"/>
+			<result property="descripcionSiebel" column="DESCRIPCION"/>
+		</resultMap>
+		
+		<resultMap id="MatrizNegocioMap" class="MatrizNegocio" >
+			<result property="idMatriz" column="ID"/>
+			<result property="porcentajeAjuste" column="PORC_AJUSTE"/>
+			<result property="notaTope" column="NOTA_TOPE"/>
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA"/>
+			<result property="fechaFin" column="FECHA_FIN"/>
+			<result property="idBanca" column="BANCA_ID"/>
+			<result property="idSegmento" column="SEGMETO_ID"/>
+		</resultMap>
+		
+		<resultMap id="TemaNegocioMap" class="TemaNegocio">
+			<result property="idTema" column="ID_TEMA"/>
+			<result property="idMatriz" column="MATRIZ_NEG_ID"/>
+			<result property="tema" column="TEMA"/>
+			<result property="orden" column="NUMERO_TEMA"/>
+			<result property="ponderacion" column="PONDERACION_TEMA"/>
+			<result property="vigenteModificado" column="VIGENTE_MODIFICADO"/>
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA"/>
+		</resultMap>
+		
+		<resultMap  id="PreguntaNegocioMap" class="PreguntaNegocio">
+			<result property="idPregunta" column="PREGUNTA_ID"/>
+			<result property="idTema" column="TEMA_ID"/>
+			<result property="idMatriz" column="MATRIZ_NEGOCIO_ID"/>
+			<result property="ponderacion" column="PONDERACION_PREGUNTA"/>
+			<result property="pregunta" column="PREGUNTA"/>
+			<result property="orden" column="NUMERO_PREGUNTA"/>
+			<result property="vigenteModificado" column="VIGENTE_MODIFICADO"/>
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA"/>
+		</resultMap>
+		
+		<resultMap id="AlternativaNegocioMap" class="AlternativaNegocio">
+			<result property="idAlternativa" column="ALTERNATIVA_ID"/>
+			<result property="notaAltenativa" column="NOTA_ALTERNATIVA"/>
+			<result property="alternativa" column="ALTERNATIVA"/>
+			<result property="orden" column="NUMERO_ALTERNATIVA"/>
+			<result property="idPregunta" column="PREGUNTA_ID"/>
+			<result property="idTema" column="TEMA_ID"/>
+			<result property="idMatriz" column="MATRIZ_NEGOCIO_ID"/>
+			<result property="vigenteModificado" column="VIGENTE_MODIFICADO"/>
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA"/>
+		</resultMap>
+		
+		<resultMap id="AlternativaNegocioPreguntaMap" extends="AlternativaNegocioMap" class="AlternativaNegocio">
+				<result property="estado" column="ESTADO" />
+				<result property="fechaFin" column="FECHA_FIN" />
+		</resultMap>
+		
+		<resultMap id="RespuestasRtgNegocio" class="RespuestaNegocio">
+			<result property="idCliente" column="ID_CLIENTE"/>
+			<result property="idPregunta" column="ID_PREGUNTA"/>
+			<result property="idTema" column="ID_TEMA"/>
+			<result property="idMatriz" column="ID_MATRIZ"/>
+			<result property="idRatingNegocio" column="ID_RATING_NEGOCIO"/>
+			<result property="idRespuesta" column="ID_ALTERNATIVA_SELECCIONADA"/>
+			<result property="nota" column="NOTA_RESPUESTA"/>
+			<result property="notaTema" column="NOTA_TEMA"/>
+		</resultMap>
+		
+		<resultMap id="matrizFinancieraMap" class="MatrizFinanciera">
+			<result property="idMatriz" column="ID_MATRIZ_FINANCIERA"/>
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA"/>
+			<result property="ponderacionAnual0" column="POND_ANUAL_0"/>
+			<result property="ponderacionAnual1" column="POND_ANUAL_1"/>
+			<result property="ponderacionAnual2" column="POND_ANUAL_2"/>
+			<result property="ponderacionNoAnual0" column="POND_0"/>
+			<result property="ponderacionNoAnual1" column="POND_1"/>
+			<result property="ponderacionNoAnual2" column="POND_2"/>
+			<result property="idUsuario" column="ID_USUARIO"/>
+			<result property="fechaFin" column="FECHA_FIN"/>
+			<result property="notaTope" column="NOTA_TOPE"/>
+			<result property="porcentajeAjuste" column="PORCENTAJE_AJUSTE"/>
+			<result property="idBanca" column="ID_BANCA"/>
+			<result property="idSegmento" column="ID_SEGMENTO"/>
+			<result property="idMatrizProy" column="ID_MATRIZ_PROYECTADA"/>
+		</resultMap>
+		
+		<resultMap id="matrizFinancieraMapExt" extends="matrizFinancieraMap" class="MatrizFinanciera">
+			<result property="esProyectado" column="ES_PROYECTADO"/>
+			<result property="estadoId" column="ESTADO_ID"/>
+		</resultMap>
+		
+		<resultMap id="matrizFinancieraSoloIdMap" class="MatrizFinanciera">
+			<result property="idMatriz" column="MATRIZ"/>
+		</resultMap>
+		<resultMap id="temasFinancierosMap" class="TemaFinanciero">
+			<result property="idTema" column="ID_TEMA"/>
+			<result property="tema" column="TEMA"/>
+			<result property="numeroTema" column="NUMERO"/>
+			<result property="ponderacion" column="PONDERACION"/>
+			<result property="idMatriz" column="ID_MATRIZ"/>
+		</resultMap>
+		
+		<resultMap id="indicadorFinancieroMap" class="IndicadorFinanciero">
+			<result property="idTema" column="ID_TEMA"/>
+			<result property="idMatriz" column="ID_MATRIZ"/>
+			<result property="codigoCuenta" column="CODIGO_CTA"/>
+			<result property="codigoCuentaId" column="CODIGO_CTA_ID"/>
+			<result property="numeroIndice" column="NUMERO"/>
+			<result property="ponderacion" column="PONDERACION"/>
+			<result property="flagOpcional" column="OPCIONAL_FLAG"/>
+			<result property="origenInfo" column="ORIGEN_INFO"/>
+		</resultMap>
+		
+		<resultMap id="rangoNotaFinancieraMap" class="RangoNotaFinanciera">
+			<result property="idRango" column="RGO_NOTA_ID"/>   
+			<result property="idMatriz" column="MATR_FINAN_ID"/>   
+			<result property="idTema" column="TEMA_ID"/>   
+			<result property="codigoCuenta" column="CODIGO_CTA"/> 
+			<result property="rango" column="RGO_NOTA"/> 
+			<result property="valorSuperior" column="VAL_SUPERIOR_NOTA"/>   
+			<result property="valorInferior" column="VAL_INFERIOR_NOTA"/>   
+			<result property="indice" column="RTG_INDICE"/>
+		</resultMap>
+		
+		<resultMap id="evaluacionFinancieraMap" class="EvaluacionFinanciera">  
+			<result property="idCliente" column="PARTE_INVOL_ID"/>
+			<result property="idTema" column="TEMA_ID"/>
+			<result property="idMatriz" column="MATR_FINAN_ID"/>
+			<result property="codigoCuenta" column="CODIGO_CTA"/>
+			<result property="idVaciado" column="VAC_ID"/>
+			<result property="idRating" column="RTG_FINAN_ID"/>
+			<result property="idRango" column="RGO_NOTA_ID"/>
+			<result property="ptjTema" column="PTJ_TEMA"/>
+			<result property="ptjEvaluador" column="PTJ_EVALUADOR"/>
+			<result property="ptjIndice" column="PTJ_INDICE"/>
+			<result property="ponderacion" column="POND_INDICE"/>
+		</resultMap>
+		
+		<resultMap id="ajusteCalidadMap" class="AjusteCalidad">  
+			<result property="idClasificacion" column="ID_CLASIFICACION"/>
+			<result property="factor" column="FACTOR"/>
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA"/>
+			<result property="fechaFin" column="FECHA_FIN"/>
+		</resultMap>
+		
+		<resultMap id="probDefaultMap" class="ProbabilidadDefault">
+			<result property="rtgFinal" column="RTG_FINAL" />
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA" />
+			<result property="fechaFin" column="FECHA_FIN" />
+			<result property="probDefault" column="PROB_DEFAULT" />
+		</resultMap>
+		
+		<resultMap  id="ratingIndividual_vigencia" class="RatingIndividual">
+			<result property="idCliente" column="PARTE_INVOL_ID"/>
+			<result property="idRating" column="RTG_SEQ"/>
+			<result property="idBanca" column="BANCA_ID"/>
+			<result property="periodoVac0" column="PER_VAC_ID"/>
+			<result property="fechaCambioEstado" column="FECHA_EST"/>
+			<result property="idEstado" column="EST_ID"/>
+			<result property="estado" column="ESTADO_STR"/>
+			<result property="ratingFinal" column="RTG_FINAL"/>
+			<result property="rut" column="RUT" />
+		</resultMap>
+		
+		<resultMap id="ratingGrupal_vigencia" class="RatingGrupal">
+			<result property="idParteInvolucrada" column="ID_PARTE_INVOL" />
+			<result property="idRatingGrupal" column="ID_GRUPAL"/>
+			<result property="rut" column="RUT" />
+			<result property="fecha" column="FECHA" />
+			<result property="notaGrupal" column="NOTA_GRUPAL" />
+			<result property="estado" column="ESTADO_STR" />
+			<result property="idEstado" column="ESTADO_ID" />
+			<result property="responsable" column="RESPONSABLE"/>
+		</resultMap>
+
+		<resultMap id="flagCuentaMap" class="FlagCuentaProyeccion">
+			<result property="codigoCuenta" column="Codigo_Cta" />
+			<result property="flagDefault" column="Flag_Default"/>
+			<result property="idNombrePlanCuenta" column="Id_Nombre_Plan" />
+			<result property="flagOpcionalidad" column="Flag_Opcionalidad" />
+			<result property="idTipoPlan" column="ID_PLAN" />
+		</resultMap>
+		
+		<resultMap id="resultNivelVenta" class="PonderacionNivelVenta">
+			<result property="idBanca" column="ID_BANCA" />
+			<result property="idSegmento" column="ID_SEGMENTO"/>
+			<result property="idTpoRating" column="TPO_RATING_ID" />
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA" />
+			<result property="fechaFin" column="FECHA_FIN" />
+			<result property="prcVenta" column="PRC_PESO" />
+		</resultMap>
+		
+		<resultMap id="integranteGrupoPyMEMap" class="IntegranteRatingGrupo">
+			<result property="idCliente" column="CLIENTE_ID" />
+			<result property="idRating" column="RATING_ID" />
+			<result property="idRelacion" column="RELACION" />
+			<result property="rutRelacionado" column="RUT_RELACIONADO" />
+			<result property="idVersion" column="ID_VERSION" />
+			<result property="prcParticipacion" column="PORC_PARTICIPACION" />
+			<result property="deudaBanco" column="DEUDA_BANCO" />
+			<result property="deudaSbif" column="DEUDA_SBIF" />
+			<result property="ratingComportamiento" column="RTG_COMPORTAMIENTO" />
+			<result property="fechaModificacion" column="FECHA_MODIF" />
+			<result property="ratingFinanciero" column="RTG_FINANCIERO" />
+			<result property="ratingNegocio" column="RTG_NEGOCIO" />
+			<result property="deudaACHEL" column="DEUDA_ACHEL" />
+			<result property="ratingIndividual" column="RTG_INDIVIDUAL" />
+			<result property="puntajeCaritas" column="PJE_CARITAS" />
+			<result property="operaComoEmpresa" column="EMPRESA" />
+			<result property="idUsuario" column="ID_USUARIO" />
+			<result property="nombreRelacionado" column="NOMBRE_RELACIONADO" />
+			<result property="ratingGarante" column="RATING_GARANTE" />
+			<result property="ventas" column="MONTO_VENTAS" />
+			<result property="fechaRatingIndividual" column="FECHA_RTG_INDIVIDUAL" />
+			<result property="flagComportamientoActual" column="COMPORTAMIENTO_ACTUAL" />
+			<result property="clasificacionRiesgo" column="CLASIFICACION_RGO" />
+			<result property="ratingProyectado" column="RTG_PROYECTADO" /><!--//Spring 01 requerimiento REQ:7.1.5-->	
+			<result property="modeloRating" column="MODELO_RATING" /><!--//Spring 01 requerimiento REQ:7.1.6-->
+		</resultMap>
+		
+		<resultMap id="integranteGrupoNoPyMEMap" class="IntegranteRatingGrupo">
+			<result property="idGrupo" column="GRUPO_ID" />
+			<result property="idCliente" column="CLIENTE_ID" />
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA" />
+			<result property="fechaFin" column="FECHA_FIN" />
+			<result property="flagParticipa" column="FLAG_PARTICIPA" />
+			<result property="flagAplica" column="FLAG_APLICA" />
+			<result property="prcParticipacion" column="PORC_PARTICIPACION" />
+			<result property="idUsuario" column="ID_USUARIO" />
+			<result property="activos" column="MONTO_ACTIVOS" />
+			<result property="clasificacionRiesgo" column="CLASIFICACION_RIESGO" />
+			<result property="nombreRelacionado" column="NOMBRE_RELACIONADO" />
+			<result property="rutRelacionado" column="RUT_RELACIONADO" />
+		</resultMap>
+		
+		<resultMap id="integranteGrupoNoPyMEBancaMap" extends="integranteGrupoNoPyMEMap" class="IntegranteRatingGrupo">
+			<result property="idBanca" column="BANCA_ID" />
+		</resultMap>
+		
+		<resultMap id="ratingGrupalNoPyME" class="RatingGrupal">
+			<result property="idRatingGrupal" column="ID_GRUPO" />
+			<result property="nota" column="RATING"/>
+			<result property="idEstado" column="ESTADO_GRUPO" />
+			<result property="fecha" column="FECHA_ESTADO" />
+			<result property="idUsuario" column="ID_USUARIO" />
+			<result property="fechaActualizacionSiebel" column="FECHA_NOTIF_SIEBEL" />
+			<result property="ratingManual" column="RATING_MANUAL" />
+			<result property="idMotivo" column="ID_MOTIVO" />
+			<result property="comentariosModif" column="COMENTARIO_MODIF" />
+			<result property="idBanca" column="ID_BANCA" />
+		</resultMap>
+		
+		<resultMap id="ratingGrupalNoPyMEMod" class="RatingGrupal">
+			<result property="idRatingGrupal" column="ID_GRUPO" />
+			<result property="nota" column="RATING"/>
+			<result property="idEstado" column="ESTADO_GRUPO" />
+			<result property="fecha" column="FECHA_ESTADO" />
+			<result property="idUsuario" column="ID_USUARIO" />
+			<result property="fechaActualizacionSiebel" column="FECHA_NOTIF_SIEBEL" />
+			<result property="ratingManual" column="RATING_MANUAL" />
+			<result property="idMotivo" column="ID_MOTIVO" />
+			<result property="comentariosModif" column="COMENTARIO_MODIF" />
+			<result property="idBanca" column="ID_BANCA" />
+			<result property="comentarioGeneral" column="COMENTARIO_GENERAL" />
+		</resultMap>
+		
+		<resultMap id="ratingGrupalPyME" class="RatingGrupal">
+			<result property="idParteInvolucrada" column="ID_CLIENTE" />
+			<result property="idRatingIndividual" column="ID_RATING_IND"/>
+			<result property="idVersion" column="ID_VERSION"/>
+			<result property="ponderador" column="PONDERADOR" />
+			<result property="nota" column="NOTA" />
+			<result property="notaEmpresa" column="NOTA_EMPRESA" />
+			<result property="notaPersona" column="NOTA_PERS" />
+			<result property="notaGrupal" column="NOTA_GP" />
+			<result property="ajusteConyuge" column="AJUSTE_CONYUGE" />
+			<result property="tipoPersona" column="TIPO_PERSONA" />
+			<result property="idUsuario" column="ID_USUARIO" />
+			<result property="idEstado" column="ID_ESTADO" />
+			<result property="fecha" column="FECHA_ESTADO" />
+			<result property="fechaActualizacionSiebel" column="FECHA_NOTIF_SIEBEL" />
+			<result property="ratingManual" column="RATING_MANUAL" />
+			<result property="idMotivo" column="ID_MOTIVO" />
+			<result property="comentariosModif" column="COMENTARIO_MODIF" />
+			<result property="idBanca" column="ID_BANCA" />
+		</resultMap>
+		
+		<resultMap id="ratingGrupalPyMEMod" extends="ratingGrupalPyME" class="RatingGrupal">
+			<result property="comentarioGeneral" column="COMENTARIO_GENERAL" />
+		</resultMap>
+		
+		<resultMap id="ratingGrupalPyMEModRel" extends="ratingGrupalPyMEMod" class="RatingGrupal">
+			<result property="idParteInvolucradaRel" column="ID_CLIENTE_REL" />
+			<result property="idRatingIndividualRel" column="ID_RATING_IND_REL"/>
+		</resultMap>
+		
+		<resultMap id="grupoRtgMap" class="GrupoRating">
+			<result property="idGrupo" column="ID_GRUPO" />
+			<result property="codigo" column="CODIGO_GRUPO" />
+			<result property="nombre" column="NOMBRE_GRUPO" />
+			<result property="texto" column="TEXTO" />
+			<result property="idTipoGrupo" column="ID_TIPO_GRUPO" />
+		</resultMap>
+		
+		<resultMap id="relRatingIndRatingGrpNoPyMEMap" class="RelacionRatingIndRatingGrupoNoPyME">
+			<result property="idCliente" column="ID_CLIENTE" />
+			<result property="idRatingInd" column="ID_RATING" />
+			<result property="idGrupo" column="ID_GRUPO" />
+			<result property="fechaEfectiva" column="FECHA_EFECTIVA" />
+		</resultMap>
+		
+		<resultMap id="rutGrupoPyme_vigencia" class="ParteInvolucrada">
+			<result property="rut" column="RUT" />
+		</resultMap>
+
+		<resultMap id="ponderacionMatrizFinanciera" class="PonderacionMatrizFinanciera">
+			<result property="idMatrizFinanciera" column="Id_Matrizz" />
+			<result property="idPeriodo" column="Id_Periodo" />
+			<result property="mesesPeriodoInf" column="Meses_Inf" />
+			<result property="mesesPeriodoSup" column="Meses_Sup" />
+			<result property="ponderacion" column="Ponderacion" />
+			<result property="orden" column="Orden" />
+			<result property="combinacionPonderacion.idCombinacion" column="Id_Combinacion" />
+			<result property="combinacionPonderacion.numeroVaciados" column="Num_Vaciados" />
+			<result property="combinacionPonderacion.combinacion" column="COMBINACION" />
+		</resultMap>
+     
+		<!-- Sprint 3 req 7.4.29 -->
+		<resultMap id="ParametrosMap" class="RatingIndividual">
+			<result property="nombreCorto" column="NOMBRE_CORTO" /> 
+		</resultMap>
+		<!-- Sprint 7 req 6.4.29 Vigencia de Rtg -->
+		<resultMap id="ratingIndividual_vigenciaMalla" extends="ratingIndividual_vigencia"
+		class="RatingIndividual">
+		<result property="idMotivoModifRating" column="IDMOTIVO" />
+		</resultMap>
+		
+		<!-- Sprint 8 req 7.4.29 MULTISEGMENTO -->
+		<resultMap id="ParametrosVigenciaMulti" class="RatingGrupal">
+			<result property="idRatingGrupal" column="GP_ID" /> 
+			<result property="idParteInvolucrada" column="PARTE_INVOL" /> 
+		</resultMap>
+		
+		<!-- Sprint 8 Vigencia -->
+		<resultMap id="ParametrosVigenciaMultiSoloParticipa" class="RatingGrupal">
+			<result property="idRatingGrupal" column="GP_ID" /> 
+			<result property="idParteInvolucrada" column="PARTE_INVOL" /> 
+		</resultMap>
+		
+		
+		<!-- Sprint 8 req 7.4.29 PYME -->
+		<resultMap id="ParametrosVigenciaPYME" class="RatingGrupal">
+			<result property="idParteInvolucrada" column="ID_CLIENTE" /> 
+			<result property="idRatingIndividual" column="ID_RATING_IND" /> 
+			<result property="idVersion" column="ID_VERSION" /> 	
+			<result property="tipoPersona" column="TIPO_PERSONA" /> 
+			<result property="idUsuario" column="ID_USUARIO" /> 
+			<result property="idEstado" column="ID_ESTADO" /> 
+			<result property="fecha" column="FECHA_ESTADO" />
+			<result property="fechaActualizacionSiebel" column="FECHA_NOTIF_SIEBEL" />
+			<result property="idMotivo" column="ID_MOTIVO" /> 	
+		</resultMap>
+		
+		<!-- Sprint 8 req 7.4.29 MULTISEGMENTO -->
+		<resultMap id="ParametrosVigenciaMULTI" class="RatingGrupal">
+			<result property="idRatingGrupal" column="GP_ID" /> 
+			<result property="idParteInvolucrada" column="PARTE_INVOL" /> 
+			<result property="idBanca" column="BANCA" /> 
+			<result property="idMotivo" column="MOTIVO_ID" /> 
+			<result property="fecha" column="FECHA_ESTADO" />
+		</resultMap>
+		
+		<!-- sprint 8 7.4.29 buscar parametros vigencia rtg grupal-->
+		<resultMap id="ParametrosVigenciaGrupal" class="RatingGrupal">
+			<result property="nombreCorto" column="valueNombre" /> 
+			<result property="nombreDescripcion" column="descripcion" /> 
+		</resultMap>
+		
+		
+		
+		
+		
+
+<!--##########PARAMETER MAPS######################################################################################-->
+		
+<!--##########LLAMADAS A LOS PROCEDIMIENTOS ALMACENADOS ##########################################################-->		
+		<procedure id="sp_listarRatingsIndividualesNoInformadosVigentes" parameterClass="ParametrizadorIbatis" resultMap="ratingIndividual_vigenciaMalla">
+			{call sefe.SP_LISTAR_RRII_NOINFO_VIG (#objEntrada.fdesde,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+											     #objEntrada.fhasta,javaType=java.util.Date,jdbcType=DATE,mode=IN#,	
+											     #objEntrada.estado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,								
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+											     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												)}
+		</procedure><!-- OK -->
+		
+		<procedure id="sp_listarRatingsIndividualesInformados" parameterClass="ParametrizadorIbatis" resultMap="ratingIndividual_vigencia">
+			{call sefe.SP_LISTAR_RRII_INFO_VIG (#objEntrada.fecha,javaType=java.util.Date,jdbcType=DATE,mode=IN#,					
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+											     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												)}
+		</procedure><!-- OK -->
+		
+		<procedure id="sp_obtenerRutsParaGrupal" parameterClass="ParametrizadorIbatis" resultMap="rutGrupoPyme_vigencia">
+			{call sefe.SP_LISTAR_RUT_2_RG       (#objEntrada.piid,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											     #objEntrada.seq,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,				
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+											     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												)}
+		</procedure><!-- OK- -->
+		
+		<procedure id="sp_obtenerRatingsGrupalesNoInformadosSiebel" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupal_vigencia">
+			{call sefe.SP_LISTAR_RRGG_NOINFO_VIG (#objEntrada.fdesde,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+											     #objEntrada.fhasta,javaType=java.util.Date,jdbcType=DATE,mode=IN#,					
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+											     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												)}
+		</procedure><!-- OK -->
+
+		<procedure id="sp_obtenerRatingsGrupalesInformadosSiebel" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupal_vigencia">
+			{call sefe.SP_LISTAR_RRGG_INFO_VIG (#objEntrada.fecha,javaType=java.util.Date,jdbcType=DATE,mode=IN#,				
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+											     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												)}
+		</procedure><!-- OK -->
+				
+
+		<!-- CAMBIA A HISTORICO EL RATING INDIVIDUAL VIGENTE -->
+		<procedure id="sp_rtgIndCambiarEstado" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_RTG_IND_CAMBIAR_ESTADO(#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_ESTADO,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_cambiaEstadoHistoricoRatingGrupal" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_RTG_GRP_P_NP_CAMBIAR_ESTADO (#objEntrada.piid,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											     #objEntrada.seq,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,			
+											     #objEntrada.est,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,	
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#
+												)}
+		</procedure><!-- OK -->
+		
+		<procedure id="sp_establecerRatingIndividualInformadoSiebel" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_SET_RI_INFO_SIEBEL (#objEntrada.piid,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											     #objEntrada.seq,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,	
+											     #objEntrada.fecha,javaType=java.util.Date,jdbcType=DATE,mode=IN#,				
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#
+												)}
+		</procedure><!-- OK -->
+		
+		<procedure id="sp_establecerRatingGrupalInformadoSiebel" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_SET_RG_INFO_SIEBEL (#objEntrada.piid,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											     #objEntrada.seq,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,	
+											     #objEntrada.fecha,javaType=java.util.Date,jdbcType=DATE,mode=IN#,				
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#
+												)}
+		</procedure><!-- OK -->
+		
+		<procedure id="sp_obtenerRatingAsociados" parameterClass="ParametrizadorIbatis" resultMap="ratingFinanciero">
+			{call sefe.SP_OBTENER_RATING_ASOCIADOS(#objEntrada,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,										
+											  #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											  #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+											  #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											 )}				
+		</procedure>
+		
+		<procedure id="sp_buscar_rtg_ind_cliente" parameterClass="ParametrizadorIbatis" resultMap="ratingIndividual">
+			{call sefe.SP_BUSCAR_RTG_IND_CLIENTE(#objEntrada,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,										
+											  #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											 )}				
+		</procedure>
+		
+		<procedure id="sp_obtenerRatingGrupal" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalMap">
+			{call sefe.SP_BUSCAR_RATING_GRUPAL(#objEntrada.rutCliente,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objEntrada.idTipoRat,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idRat,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_buscar_rtg_grupal_pyme" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalMap">
+			{call sefe.sp_buscar_rtg_grupal_pyme(#objEntrada.rutCliente,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objEntrada.idRat,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_buscar_rtg_grupal_no_pyme" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalMap">
+			{call sefe.sp_buscar_rtg_grupal_no_pyme(#objEntrada.rutCliente,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objEntrada.idRat,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_obtenerRatingsFinancieros" parameterClass="ParametrizadorIbatis" resultMap="ratingFinancieroMap">
+			{call sefe.SP_BUSCAR_RATING_FIN_CLIENTE(#objEntrada,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_obtenerRatingsNegocios" parameterClass="ParametrizadorIbatis" resultMap="ratingNegocioMap">
+			{call sefe.SP_BUSCAR_RATING_NEG_CLIENTE(#objEntrada,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_rtg_obtener_nota_comp" parameterClass="ParametrizadorIbatis" resultMap="matrizPjeCaritasMap">
+			{call sefe.SP_RTG_OBTENER_NOTA_COMP(#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+												#objEntrada.puntaje,javaType=java.lang.Double,jdbcType=NUMBER,mode=IN#,
+												#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												)}
+		</procedure>
+		
+		<procedure id="sp_rtg_obtener_nota_comp_sgm" parameterClass="ParametrizadorIbatis" resultMap="matrizPjeCaritasMap">
+			{call sefe.sp_rtg_obtener_nota_comp_sgm(#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+												    #objEntrada.puntaje,javaType=java.lang.Double,jdbcType=NUMBER,mode=IN#,
+												    #objEntrada.ID_SEGMENTO,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+												    #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												    )}
+		</procedure>
+		
+		<procedure id="sp_buscarMatrizComportamiento" parameterClass="ParametrizadorIbatis" resultMap="matrizComportamientoMap">
+			{call sefe.SP_BUSCARMATRIZCOMPORTAMIENTO(#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													 #objEntrada.ID_SEGMENTO,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+													)}
+		</procedure>
+		
+		<procedure id="sp_rtg_obtener_caritas_sem" parameterClass="ParametrizadorIbatis" resultMap="caritasSemanalMap">
+			{call sefe.SP_RTG_OBTENER_CARITA_SEM(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+												 #objEntrada.FECHA,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+												 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											   )}
+		</procedure>
+		
+		<!-- BUSCA EL COMPORTAMIENTO HISTORICO MAS RECIENTE EN UN RANGO DE FECHAS DADAS -->
+		<procedure id="sp_rtg_buscar_historico_cliente" parameterClass="ParametrizadorIbatis" resultMap="caritasSemanalMap">
+			{call sefe.SP_BUSCAR_HISTORICO_CLIENTE(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+												 #objEntrada.FECHA_DESDE,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#,
+												 #objEntrada.FECHA_HASTA,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#,
+												 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											   )}
+		</procedure>
+		
+		<procedure id="sp_obtenerRatingsComportamientos" parameterClass="ParametrizadorIbatis" resultMap="ratingComportamientoMap">
+			{call sefe.SP_BUSCAR_RATING_COMP_CLIENTE(#objEntrada,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_obtenerRatingComportamientoId" parameterClass="ParametrizadorIbatis" resultMap="ratingComportamientoMap">
+			{call sefe.SP_RTG_BUSCAR_COMP_ID(#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											 #objEntrada.ID_BANCA,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											)}
+		</procedure>
+		
+		
+		
+		<procedure id="sp_insert_rtg_comportamiento" parameterClass="ParametrizadorIbatis" resultMap="ratingComportamientoMap">
+			{call sefe.SP_INSERT_RTG_COMPORTAMIENTO(#objEntrada.idComportamiento6m,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+													 #objEntrada.notaComp0m,javaType=java.lang.Double,jdbcType=NUMBER,mode=IN#,
+													 #objEntrada.notaComp6m,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+													 #objEntrada.ratingComportamiento,javaType=java.lang.Double,jdbcType=NUMBER,mode=IN#,
+													 #objEntrada.idCliente,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													 #objEntrada.idPuntajeCaritas,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													 #objEntrada.puntajeSiebel,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+													 #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+													 #objEntrada.fechaEvaluacion,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+													 #objEntrada.porcentajeAjusteComportamiento,javaType=java.lang.Double,jdbcType=NUMBER,mode=IN#,
+													 #objEntrada.fechaPuntajeSiebel,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+													 #objEntrada.deudaBanco,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+													 #objEntrada.deudaSBIF,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+													 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_rtg_borrar_comp_indiv" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_RTG_BORRAR_COMP_INDIV(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											    #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#
+											  )}
+		</procedure>
+		
+		<procedure id="sp_actualizar_rtg_comportamiento" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_ACTUALIZAR_RTG_COMP(#objEntrada.idRating,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+												#objEntrada.fechaEvaluacion,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+												#objEntrada.ratingComportamiento,javaType=java.lang.Double,jdbcType=NUMBER,mode=IN#,
+												#objEntrada.porcentajeAjusteComportamiento,javaType=java.lang.Double,jdbcType=NUMBER,mode=IN#,
+												#objEntrada.idRatingInd,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+												#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											  )}
+		</procedure>
+		
+		
+		<procedure id="sp_actualzar_rtg_individual" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_ACTUALIZAR_RTG_INDIVIDUAL(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,													
+												#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+												#objEntrada.FECHA_MOD,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+												#objEntrada.RATING_FIN_SUG,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+												#objEntrada.RATING_APROX_FINAL,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+												#objEntrada.RATING_FINAL,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+												#objEntrada.PREMIO_TAMANO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+												#objEntrada.RATING_PRELIMINAR_1,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,													
+												#objEntrada.RATING_PRELIMINAR_2,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,	
+												#objEntrada.MONTO_VENTA,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+												#objEntrada.MONTO_PATRIMONIO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+												#objEntrada.POND_FINANCIERO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+												#objEntrada.POND_PROYECTADO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+												#objEntrada.POND_COMPORTAMIENTO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+												#objEntrada.POND_NEGOCIO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,												
+												#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+												#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,											
+												#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											  )}
+		</procedure>
+		
+		<procedure id="sp_rtg_act_comportamiento_id" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_RTG_ACT_COMPORTAMIENTO_ID(#objEntrada.idCliente,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idRating,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idComportamiento6m,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.notaComp0m,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.notaComp6m,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.ratingComportamiento,javaType=java.lang.Double,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idPuntajeCaritas,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.puntajeSiebel,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.fechaEvaluacion,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+													#objEntrada.porcentajeAjusteComportamiento,javaType=java.lang.Double,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.fechaPuntajeSiebel,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+													#objEntrada.deudaBanco,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.deudaSBIF,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#
+												  )}
+		</procedure>
+		
+		<procedure id="sp_buscarIndInfoYDetalle" parameterClass="ParametrizadorIbatis" resultMap="infoRatInd">
+			{call sefe.SP_BUSCAR_IND_INFO_Y_DETALLE(#objEntrada.rut,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objEntrada.idRatingIndividual,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_obtenerRatingAnterior" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_OBTENER_RATING_ANTERIOR(#objEntrada.rut,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+									#objEntrada.idRatingIndividual,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+									#objSalida.ID_RATING_ANTERIOR,javaType=java.lang.Long,jdbcType=INTEGER,mode=OUT#,
+									#objSalida.ID_TIPO_RATING,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#
+									)}				
+		</procedure>
+		
+		<procedure id="sp_obtenerFortalezaDebilidad" parameterClass="ParametrizadorIbatis" resultMap="fortalezaDebilidadMap">
+			{call sefe.SP_BUSCAR_FORTALEZA_DEBILIDAD(#objEntrada.rut,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objEntrada.idRatingIndividual,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_buscarRelacionadoRpt" parameterClass="ParametrizadorIbatis" resultMap="relacionadoRptMap">
+			{call sefe.SP_BUSCAR_RELACIONADO_PYME(#objEntrada.rut,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objEntrada.idRatingIndividual,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.version,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_buscarRelacionadoNoPymeRpt" parameterClass="ParametrizadorIbatis" resultMap="relacionadoNoPymeRptMap">
+			{call sefe.SP_BUSCAR_RELACIONADO_NO_PYME(#objEntrada.rut,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objEntrada.idRatingIndividual,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>		
+		
+		<!--<procedure id="sp_buscarRelacionadoPymeMalla" parameterClass="ParametrizadorIbatis" resultMap="relacionadoPymeMap">
+			{call sefe.SP_BUSCAR_RELACIONADO_PYME(#objEntrada.rut,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objEntrada.idRatingIndividual,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>-->
+		
+		<procedure id="sp_insertarCaritasSemanal" parameterClass="ParametrizadorIbatis" resultMap="caritasSemanalMap">
+			{call sefe.SP_INSERTAR_CARITAS_SEMANAL(#objEntrada.idParteInvolucrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+												   #objEntrada.fechaEvaluacion,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+												   #objEntrada.puntajeFinal,javaType=java.lang.Double,jdbcType=NUMBER,mode=IN#,
+												   #objEntrada.puntajePonderado,javaType=java.lang.Double,jdbcType=NUMBER,mode=IN#,
+												   #objEntrada.descripcion,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+												   #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+												   #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+												   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												  )}
+		</procedure>
+		
+		<procedure id="sp_ratingBuscarVaciadoPyme" parameterClass="ParametrizadorIbatis" resultMap="vaciadoMap">
+			{call sefe.SP_RTG_BUSCAR_VAC_PYME(#objEntrada.rutCliente,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+												 #objEntrada.antiguedadMax,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+												 #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+												 #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+												 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												 )}
+		</procedure>
+		
+		<procedure id="sp_ratingBuscarVaciadoGrandesEmpresasYSocInversiones" parameterClass="ParametrizadorIbatis" resultMap="vaciadoMap">
+			{call sefe.SP_RTG_BUSCAR_VAC_GGEE_SOC_IN(#objEntrada.rutCliente,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+												     #objEntrada.antiguedadMax,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+												     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+												     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+												     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												 )}
+		</procedure>
+		
+		<procedure id="sp_obtenerSegmento" parameterClass="ParametrizadorIbatis" resultMap="segmentoMap">
+			{call sefe.SP_OBTENER_SEGMENTO(#objEntrada.valor,javaType=java.lang.Double,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.tipoSegmento,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_obtenerSegmentoporid" parameterClass="ParametrizadorIbatis" resultMap="segmentoMap">
+			{call sefe.SP_OBTENER_SEGMENTO_POR_ID(#objEntrada.sgmId,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		
+		<procedure id="sp_buscarSegmentosPorBanca" parameterClass="ParametrizadorIbatis" resultMap="segmentoMap">
+			{call sefe.SP_OBTENER_SEGMENTOS_POR_BANCA(#objEntrada.idTipoSegmento,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.idBanca,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		<procedure id="sp_buscarSegmentosPorBancaYFecha" parameterClass="ParametrizadorIbatis" resultMap="segmentoMap">
+			{call sefe.Sp_Obt_Sgm_Por_Banca_y_Fecha(#objEntrada.idTipoSegmento,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.idBanca,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,	
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>		
+		<procedure id="sp_buscarSegmento" parameterClass="ParametrizadorIbatis" resultMap="segmentoMap">
+		{call sefe.SP_OBTENER_SEGMENTO_BANCA_ID(#objEntrada.idTipoSegmento,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.monto,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.idBanca,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		<procedure id="SP_OBT_SGM_BANCA_ID_FECHA" parameterClass="ParametrizadorIbatis" resultMap="segmentoMap">
+		{call sefe.SP_OBT_SGM_BANCA_ID_FECHA(#objEntrada.idTipoSegmento,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.monto,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.idBanca,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		<procedure id="sp_buscarHistorico6m" parameterClass="ParametrizadorIbatis" resultMap="ComportamientoHistorico6M">
+			{call sefe.SP_BUSCAR_HISTORICO6M(#objEntrada.sgmid,javaType=java.lang.Integer,jdbcType=Integer,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		
+		
+		
+		<procedure id="sp_buscarRatingNegocioVigente" parameterClass="ParametrizadorIbatis" resultMap="ratingNegocioMap">
+			{call sefe.SP_BUSCAR_RTG_NEGOCIO_VIGENTE(#objEntrada.rut,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objEntrada.idBanca,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.diasEval,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_buscarMatrizNegocio" parameterClass="ParametrizadorIbatis" resultMap="MatrizNegocioMap">
+			{call sefe.SP_OBTENER_MATR_NEG(#objEntrada.idSegmento,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.idBanca,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_buscarTemaNegocio" parameterClass="ParametrizadorIbatis" resultMap="TemaNegocioMap">
+			{call sefe.SP_BUSCAR_TEMA(#objEntrada.idMatriz,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idEstado,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.fechaRating,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_buscarPreguntaNegocio" parameterClass="ParametrizadorIbatis" resultMap="PreguntaNegocioMap">
+			{call sefe.SP_BUSCAR_CUESTIONARIO(#objEntrada.idMatriz,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idTema,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idEstado,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.fechaRating,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<!-- Busca todas las alternativas para una pregunta de una matriz -->
+		<procedure id="sp_buscarAlternativaNegocio" parameterClass="ParametrizadorIbatis" resultMap="AlternativaNegocioMap">
+			{call sefe.SP_BUSCAR_ALTERNATIVA(#objEntrada.idMatriz,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idTema,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idPregunta,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idEstado,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.fechaRating,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<!-- Busca todas las alternativas para una pregunta de una matriz -->
+		<procedure id="SP_BUSCAR_ALTERNATIVA_X_PREG" parameterClass="ParametrizadorIbatis" resultMap="AlternativaNegocioPreguntaMap">
+			{call sefe.SP_BUSCAR_ALTERNATIVA_X_P(#objEntrada.idMatriz,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idTema,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idPregunta,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<!-- Busca por PK la alternativa -->
+		<procedure id="sp_buscarAlternativaNegocioPk" parameterClass="ParametrizadorIbatis" resultMap="AlternativaNegocioMap">
+			{call sefe.SP_RTG_BUSCAR_ALTERNATIVA_NEG(#objEntrada.idAlternativa,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+                                                     #objEntrada.idMatriz,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													 #objEntrada.idTema,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													 #objEntrada.idPregunta,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_insertarRatingNegocio" parameterClass="ParametrizadorIbatis" resultMap="ratingNegocioMap">
+			{call sefe.SP_INSERT_RTG_NEGOCIO(#objEntrada.idCliente,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.estado,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idMatriz,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.notaNegocio,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+													#objEntrada.notaNegocioSinTope,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+													#objEntrada.fechaEvaluacion,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_actualizarRatingConRatingNegocio" parameterClass="ParametrizadorIbatis" >
+			{call sefe.SP_ACTUALIZAR_RTG_CON_NEG(#objEntrada.idCliente,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.idRating,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.fechaEvaluacion,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+													#objEntrada.notaNegocio,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+													#objEntrada.idRatingIndividual,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_buscarMatrizNegocioPorId" parameterClass="ParametrizadorIbatis" resultMap="MatrizNegocioMap">
+			{call sefe.SP_OBTENER_MATR_NEG_ID(#objEntrada,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<procedure id="sp_buscarRatingNegocioPorId" parameterClass="ParametrizadorIbatis" resultMap="ratingNegocioMap">
+			{call sefe.SP_BUSCAR_RTG_NEGOCIO_POR_ID(#objEntrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		
+		<!-- CONSULTA RATING FINANCIERO VIGENTE POR CLIENTE Y BANCA -->
+		<procedure id="sp_consultaFinancVigentePorClienteBanca" parameterClass="ParametrizadorIbatis" resultMap="ratingFinancieroMap">
+			{call sefe.SP_RTG_CONSULTA_FINANC_VIGENTE(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>	
+		
+		
+		<!-- CONSULTA RATING FINANCIERO PROYECTADO VIGENTE POR CLIENTE Y BANCA -->
+		<procedure id="sp_onsultaFinancProyVigentePorClienteBanca" parameterClass="ParametrizadorIbatis" resultMap="ratingFinancieroMap">
+			{call sefe.SP_RTG_CONSULTA_PROYEC_VIGENTE(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		
+		<!-- CONSULTA RATING COMPORTAMIENTO VIGENTE POR CLIENTE Y BANCA -->
+		<procedure id="sp_consultaCompVigentePorClienteBanca" parameterClass="ParametrizadorIbatis" resultMap="ratingComportamientoMap">
+			{call sefe.SP_RTG_CONSULTA_COMP_VIGENTE(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>	
+		
+		
+		<!-- CONSULTA RATING DE NEGOCIO VIGENTE POR CLIENTE Y BANCA 
+		<procedure id="sp_consultaNegocioVigentePorClienteBanca" parameterClass="ParametrizadorIbatis" resultMap="ratingNegocioMap">
+			{call sefe.SP_RTG_CONSULTA_NEG_VIGENTE(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>	-->
+		
+	    <!-- CONSULTA RATING DE NEGOCIO VIGENTE POR CLIENTE Y BANCA -->
+		<procedure id="sp_consultaNegocioVigentePorClienteBanca" parameterClass="ParametrizadorIbatis" resultMap="ratingNegocioMap">
+			{call sefe.SP_RTG_CONSULTA_NEG_VIG_TEST(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>	
+
+
+		<!-- CREA UNA NUEVA INSTANCIA DEL RATING INDIVIDUAL -->
+		<procedure id="sp_rtg_crear_rating_individual" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_RTG_CREAR_RATING_INDIV(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_USUARIO,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		
+		<!-- DETERMINA SI EXISTE UN RATING INDIVIDUAL EN CURSO -->
+		<procedure id="sp_rtg_buscar_individual_curso" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_RTG_BUSCAR_INDIV_EN_CURSO(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<!-- DETERMINA SI EXISTE UN RATING INDIVIDUAL EN VIGENTE -->
+		 
+	<!--	<procedure id="sp_rtg_buscar_individual_vigente" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_RTG_BUSCAR_INDIV_vigente(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>-->
+	
+		<!-- Requrimiento 7.2.15 Ficha financiera Sprint 1 -->
+		<!-- DETERMINA SI EXISTE UN RATING INDIVIDUAL EN VIGENTE -->
+		<procedure id="sp_rtg_buscar_individual_vigente" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmapExt">
+			{call sefe.SP_RTG_BUSCAR_INDIV_vigente(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+		<!-- ACTUALIZA COMENTARIO DEL RATING INDIVIDUAL -->
+		 
+		<procedure id="sp_rtg_actualizar_comentario_rtg_individual" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_RTG_ACT_COMENT_INDIVIDUAL(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.COMENT,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objEntrada.ID_USUARIO,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,													
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>	
+		
+		<!-- ACTUALIZA COMENTARIO DE LA MODIFICACION DEL RATING INDIVIDUAL MODIFICADO -->
+		<procedure id="sp_rtg_conf_coment_indiv_modif" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_RTG_CONF_COMENT_INDIV_MODIF(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.COMENT,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objEntrada.ID_USUARIO,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,													
+													#objEntrada.ID_RATING_FINAL,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_MODIF,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.COMENT_MODIF,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>			
+
+		<!-- CONFIRMA RATING INDIVIDUAL MODIFICADO -->
+		
+		<procedure id="sp_rtg_confirmar_individual_modificado" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_RTG_CONFIRMAR_INDIV_MODIF(#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.ID_USUARIO,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.NOTA_RATING,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+													#objEntrada.COMENT,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objEntrada.ID_MOTIVO,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.COMENTARIO_MOTIVO,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+													#objEntrada.DEUDA_BANCO,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+													#objEntrada.DEUDA_SBIF,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,											
+													#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+													#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+													#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>	
+
+		<!-- DETERMINA EL RATING INDIVIDUAL ASOCIADO AL RATING FINANCIERO -->
+		<procedure id="sp_rtg_buscar_individual_por_financiero" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_RTG_BUSCAR_INDIV_POR_FINAN(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+																#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+																#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+																#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+																#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+																#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+															   )}
+		</procedure>
+		
+		
+	<!-- Busca las respuestas ingresadas por el usuario en rating de negocio -->												   
+	<procedure id="sp_obtener_respuestas_rtg_neg" parameterClass="ParametrizadorIbatis" resultMap="RespuestasRtgNegocio">
+			{call sefe.sp_obtener_respuestas_rtg_neg(#objEntrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												   )}
+		</procedure>
+		
+	<!-- Busca informacion de rating individual por los parametros idCliente y idRating-->
+	<procedure id="sp_rtg_consulta_individual" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.sp_rtg_consulta_individual(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			 									 #objEntrada.idRatInd,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			 									 #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+			 									 #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+			 									 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+			 									 )}
+	</procedure>
+	
+	<!-- Inserta un nuevo rating financiero con todos los campos -->
+	<procedure id="sp_rtg_insert_rtg_financiero" parameterClass="ParametrizadorIbatis" resultMap="ratingFinancieroMap">
+			{call sefe.sp_rtg_insert_rtg_financiero(#objEntrada.fechaRating,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+	 							                    #objEntrada.notaFinanciera,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaPeriodo0,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.pesoPeriodo0,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaPeriodo1,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.pesoPeriodo1,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.fechaBalance,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+	 							                    #objEntrada.flagConsolidado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.numeroMeses,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.notaSinTope,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.montoVentas,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.prcVarDeudaSBIF,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.prcVarVentasIVA,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.prcVentasSobrePasivos,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaFinancieraSinPRO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.idMatriz,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVaciado2,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVacProyectado,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVaciado1,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVaciado0,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.notaPeriodo2,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.pesoPeriodo2,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaProyectada,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.estado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                    #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								           )}
+	</procedure>
+	
+	<!-- Actualiza el rating financiero con todos sus campos-->
+	<procedure id="sp_rtg_update_rtg_financiero" parameterClass="ParametrizadorIbatis" resultMap="ratingFinancieroMap">
+			{call sefe.sp_rtg_update_rtg_financiero(#objEntrada.idRating,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+													#objEntrada.fechaRating,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+	 							                    #objEntrada.notaFinanciera,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaPeriodo0,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.pesoPeriodo0,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaPeriodo1,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.pesoPeriodo1,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.fechaBalance,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+	 							                    #objEntrada.flagConsolidado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.numeroMeses,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.notaSinTope,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.montoVentas,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.prcVarDeudaSBIF,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.prcVarVentasIVA,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.prcVentasSobrePasivos,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaFinancieraSinPRO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.idMatriz,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVaciado2,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVacProyectado,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVaciado1,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVaciado0,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.notaPeriodo2,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.pesoPeriodo2,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaProyectada,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.estado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                    #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								           )}
+	</procedure>
+	
+	<!-- Sprint 9 vigencia de componentes: actualiza el estado de rating financiero y proyectado-->
+	<procedure id="SP_RTG_ACTEST_FINANCIERO" parameterClass="ParametrizadorIbatis" resultMap="ratingFinancieroMap">
+			{call sefe.SP_RTG_ACTEST_FINANCIERO(#objEntrada.idRating,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+	 							                    #objEntrada.estado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                    #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								           )}
+	</procedure>
+	
+	<!-- Inserta un nuevo rating proyectado con todos los campos -->
+	<procedure id="sp_rtg_insert_rtg_proyectado" parameterClass="ParametrizadorIbatis" resultMap="ratingFinancieroMap">
+			{call sefe.SP_RTG_INSERT_RTG_PROYEC(#objEntrada.fechaRating,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+	 							                    #objEntrada.notaFinanciera,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaPeriodo0,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.pesoPeriodo0,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaPeriodo1,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.pesoPeriodo1,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.fechaBalance,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+	 							                    #objEntrada.flagConsolidado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.numeroMeses,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.notaSinTope,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.montoVentas,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.prcVarDeudaSBIF,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.prcVarVentasIVA,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.prcVentasSobrePasivos,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaFinancieraSinPRO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.idMatriz,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVaciado2,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVacProyectado,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVaciado1,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVaciado0,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.notaPeriodo2,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.pesoPeriodo2,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaProyectada,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.estado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                    #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								           )}
+	</procedure>
+	
+	<!-- Actualiza los campos del rating proyectadi -->
+	<procedure id="sp_rtg_update_rtg_proyectado" parameterClass="ParametrizadorIbatis" resultMap="ratingFinancieroMap">
+			{call sefe.SP_RTG_ACT_RTG_PROYEC(#objEntrada.fechaRating,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+	 							                    #objEntrada.notaFinanciera,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaPeriodo0,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.pesoPeriodo0,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaPeriodo1,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.pesoPeriodo1,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.fechaBalance,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+	 							                    #objEntrada.flagConsolidado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.numeroMeses,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.notaSinTope,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.montoVentas,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.prcVarDeudaSBIF,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.prcVarVentasIVA,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.prcVentasSobrePasivos,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaFinancieraSinPRO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.idMatriz,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVaciado2,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVacProyectado,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVaciado1,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idVaciado0,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.notaPeriodo2,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.pesoPeriodo2,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.notaProyectada,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.estado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idProyectado,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+	 							                    #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								           )}
+	</procedure>
+	
+	<procedure id="sp_rtg_insert_eval_financiero" parameterClass="ParametrizadorIbatis">
+			{call sefe.sp_rtg_insert_eval_financiero(#objEntrada.idCliente,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+	 							                    #objEntrada.idTema,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+	 							                    #objEntrada.idMatriz,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+	 							                    #objEntrada.codigoCuenta,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+	 							                    #objEntrada.idVaciado,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+	 							                    #objEntrada.idRating,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.idRango,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                    #objEntrada.ptjTema,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.ptjEvaluador,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.ptjIndice,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                    #objEntrada.ponderacion,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#
+	 								           )}
+	</procedure>
+	
+	<!-- Busca los registros de evaluacion financiero asociados a un rating financiero -->
+	<procedure id="sp_rtg_buscar_eval_finan_x_rtg" parameterClass="ParametrizadorIbatis" resultMap="evaluacionFinancieraMap">
+			{call sefe.sp_rtg_buscar_eval_finan_x_rtg(#objEntrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			 									      #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+			 									     )}
+	</procedure>
+	
+	<!-- Busca informacion de rating financiero por el parametro idRating -->
+	<procedure id="sp_rtg_consulta_financiero" parameterClass="ParametrizadorIbatis" resultMap="ratingFinancieroMap">
+			{call sefe.sp_rtg_consulta_financiero(#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=DOUBLE,mode=IN#,
+			 									 #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+			 									 #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+			 									 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+			 									 )}
+	</procedure>
+	
+	<!-- Busca rating financiero que use como vaciado cabecera el id de vaciado pasado como parametro -->
+	<procedure id="sp_rtg_buscar_finan_x_vac_act" parameterClass="ParametrizadorIbatis" resultMap="ratingFinancieroMap">
+			{call sefe.sp_rtg_buscar_finan_x_vac_act(#objEntrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			 									     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+			 									     )}
+	</procedure>
+	
+		<!-- Busca un ajuste por calidad recibiendo como parametro el id_calidad -->
+	<procedure id="sp_rtg_buscar_ajuste_x_calidad" parameterClass="ParametrizadorIbatis" resultMap="ajusteCalidadMap">
+			{call sefe.sp_rtg_buscar_ajuste_x_calidad(#objEntrada,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+			 									     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+			 									     )}
+	</procedure>
+	
+	<!-- SP correspondientes al Rating Garante -->
+	
+	<procedure id="sp_obtenerClasificacionesRiesgo" parameterClass="ParametrizadorIbatis" resultMap="clasificacionRiesgoMap">
+			{call sefe.SP_RTG_OBTENER_CLASIF_RIESGOS(#objEntrada.TIPO_CLASIF,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+													 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											)}
+	</procedure>
+		
+	<procedure id="sp_buscarClasificacionPorId" parameterClass="ParametrizadorIbatis" resultMap="clasificacionRiesgoMap">
+			{call sefe.SP_RTG_BUSCAR_CLASIF_POR_ID(#objEntrada.CALIFICADORA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+											       #objEntrada.RIESGO,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+												   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											)}
+	</procedure>
+	
+	<procedure id="sp_calcularRatingGarante" parameterClass="ParametrizadorIbatis" resultMap="ratingGaranteMap">
+			{call sefe.SP_RTG_CALCULAR_GARANTE(#objEntrada.CALIFICADORA1,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.RIESGO1,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.CALIFICADORA2,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.RIESGO2,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.CALIFICADORA3,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.RIESGO3,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+											   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											)}
+	</procedure>
+	
+	<!-- BUSCA EL RATING GARANTE MEDIANTE LA CLAVE DE RATING Y PARTE INVOLUCRADA -->
+	<procedure id="sp_consultarRatingGarante" parameterClass="ParametrizadorIbatis" resultMap="ratingGaranteMap">
+			  {call sefe.SP_RTG_CONSULTA_GARANTE(#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			  									#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											    #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											)}
+	</procedure>
+
+	<!--  CREA UNA NUEVA INSTANCIA DE RATING GARANTE Y LO ASOCIA AL RATING INDIVIDUAL  -->
+    <procedure id="sp_rtg_crear_rating_garante" parameterClass="ParametrizadorIbatis" resultMap="ratingGaranteMap">
+			  {call sefe.SP_RTG_CREAR_GARANTE(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.ID_USUARIO,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											)}
+	</procedure>
+
+		
+	<!--  ACTUALIZA LOS VALORES DE RATING GARANTE EN TABLA DE RATING INDIVIDUAL  -->
+    <procedure id="sp_rtg_actualizar_garante_individual" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			  {call sefe.SP_RTG_ACT_GTE_INDIV(#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			  								   #objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.ID_GTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.NOTA_RATING,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+											   #objEntrada.FECHA,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+											   #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+			 								   #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+											   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											)}
+	</procedure>
+	
+	<!--  BUSCA EL RATING GARANTE VIGENTE ASOCIADO A UN CLIENTE Y BANCA  -->
+    <procedure id="sp_rtg_buscar_garante_vigente" parameterClass="ParametrizadorIbatis" resultMap="ratingGaranteMap">
+			  {call sefe.SP_RTG_CONSULTA_GTE_VIGENTE(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+											   #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+			 								   #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+											   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											)}
+	</procedure>
+
+	<!-- Borra las respuestas para un rating de negocio contestado -->
+	<procedure id="sp_rtg_borrar_rpta_neg" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_RTG_BORRAR_RPTA_NEG(#objEntrada.idCliente,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+			 							      #objEntrada.idRating,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+			 							      #objSalida.registrosEliminados,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#
+			 								 )}
+	</procedure>
+	
+	<!-- Inserta un respuesta para el cuestionario del rating de negocio -->
+	<procedure id="sp_rtg_grabar_respta_negocio" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_RTG_GRABAR_RESPTA_NEGOCIO(#objEntrada.idCliente,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+			 							            #objEntrada.idMatriz,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+			 							            #objEntrada.idTema,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+			 							            #objEntrada.idPregunta,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+			 							            #objEntrada.idRatingNegocio,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+			 							            #objEntrada.idRespuesta,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+			 							            #objEntrada.nota,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+			 							            #objEntrada.notaTema,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#
+			 								       )}
+	</procedure>
+	
+	<!--  -->
+	<procedure id="sp_rtg_act_rating_neg" parameterClass="ParametrizadorIbatis" resultMap="ratingNegocioMap">
+			{call sefe.SP_RTG_ACT_RATING_NEG(#objEntrada.idCliente,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							            #objEntrada.idRating,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							            #objEntrada.idMatriz,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							            #objEntrada.fechaEvaluacion,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+	 							            #objEntrada.notaNegocio,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							            #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							            #objEntrada.notaNegocioSinTope,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							            #objEntrada.estado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							            #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								       )}
+	</procedure>
+	
+	<!-- Sprint 9 validar vigencia de componentes -->
+	<procedure id="SP_RTG_ACTEST_RATING_NEG" parameterClass="ParametrizadorIbatis" resultMap="ratingNegocioMap">
+			{call sefe.SP_RTG_ACTEST_RATING_NEG(#objEntrada.idCliente,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							            #objEntrada.idRating,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							            #objEntrada.estado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							            #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								       )}
+	</procedure>
+	
+	<!-- Busca el listado de vaciados que pueden ser utilizados para el calculo del rating -->
+	<procedure id="sp_RtgBuscarVaciadosRating" parameterClass="ParametrizadorIbatis" resultMap="vaciadoMap">
+			{call sefe.sp_rtg_buscar_vac_rating(#objEntrada.RUT_CLIENTE,javaType=java.lang.String,jdbcType=INTEGER,mode=IN#,
+	 							                #objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								           )}
+	</procedure>
+	
+	<!-- Busca una matriz financiera para por banca y segmento -->
+	<procedure id="sp_rtg_buscar_matr_fin_bca_seg" parameterClass="ParametrizadorIbatis" resultMap="matrizFinancieraMap">
+			{call sefe.SP_RTG_BUSCAR_MATR_FIN_BCA_SEG(#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                      #objEntrada.ID_SEGMENTO,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                      #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								                 )}
+	</procedure>
+	
+	<!-- Busca una matriz financiera para por id -->
+	<procedure id="sp_buscarMatrizFinancieraPorId" parameterClass="ParametrizadorIbatis" resultMap="matrizFinancieraMapExt">
+			{call sefe.SP_OBTENER_MATR_FIN_ID(#objEntrada.ID_MATRIZ,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+												#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+												#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+	 							              #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								          )}
+	</procedure>
+	
+	<!-- Busca los temas financieros por id de matriz financiera -->
+	<procedure id="sp_rtg_buscar_temas_finan" parameterClass="ParametrizadorIbatis" resultMap="temasFinancierosMap">
+			{call sefe.SP_RTG_BUSCAR_TEMAS_FINAN(#objEntrada.ID_MATRIZ,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+			 									 #objEntrada.fechaRating,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+												 #objEntrada.estado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								             )}
+	</procedure>
+	
+	<!-- Busca los indicadores financieros por id de matriz y tema financiero -->
+	<procedure id="sp_rtg_buscar_ind_finan_x_tema" parameterClass="ParametrizadorIbatis" resultMap="indicadorFinancieroMap">
+			{call sefe.SP_RTG_BUSCAR_IND_FINAN_X_TEMA(#objEntrada.ID_MATRIZ,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+			                                          #objEntrada.ID_TEMA,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+			                                          #objEntrada.fechaRating,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			                                          #objEntrada.estado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+	 							                      #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								                  )}
+	</procedure>
+	
+	<!-- SP_RTG_ACT_INDIV_CON_FINAN -->
+	<!-- Actualiza la informacion de rating financiero en el rating individual -->
+	<procedure id="sp_rtg_act_indiv_con_finan" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_RTG_ACT_INDIV_CON_FINAN(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			                                      #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			                                      #objEntrada.RTG_FINANCIERO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+			                                      #objEntrada.FECHA_RTG_FINAN,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+			                                      #objEntrada.ID_RATING_FINAN,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+			                                      #objEntrada.PERIODO_VAC_0,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+			                                      #objEntrada.MONTO_DEUDA_BANCO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+			                                      #objEntrada.MONTO_DEUDA_SBIF,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+			                                      #objEntrada.MONTO_DEUDA_SIN_HIP_BANCO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+			                                      #objEntrada.MONTO_DEUDA_SIN_HIP_SBIF,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+			                                      #objEntrada.MONTO_DEUDA_ACHEL,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+			                                      #objEntrada.PERIODO_VAC_1,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+			                                      #objEntrada.PERIODO_VAC_2,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+			                                      #objEntrada.NIVEL_VENTAS,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+			                                      #objEntrada.MONTO_ACTIVOS,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+			                                      #objEntrada.MONTO_VENTA,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+			                                      #objEntrada.MONTO_PATRIMONIO,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+	 							                  #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								             )}
+	</procedure>
+	
+	<!-- Sprint 9 vigencia de componentes, se borran las ponderaciones según corresponda -->
+	<procedure id="SP_RTG_ELIM_PONDERACIONES" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_RTG_ELIM_PONDERACIONES(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			                                      #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+	 							                  #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								             )}
+	</procedure>
+	
+	<!-- Sprint 9 vigencia de componentes, se desasocia el rating financiero -->
+	<procedure id="SP_RTGIND_DESASOC_FINAN" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_RTGIND_DESASOC_FINAN(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			                                      #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+	 							                  #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								             )}
+	</procedure>
+	
+	<!-- Sprint 9 vigencia de componentes, se desasocia el rating de negocio -->
+	<procedure id="SP_RTGIND_DESASOC_NEG" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_RTGIND_DESASOC_NEG(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			                                      #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+	 							                  #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								             )}
+	</procedure>
+	
+	<!-- Sprint 9 vigencia de componentes, se desasocia el rating proyectado -->
+	<procedure id="SP_RTGIND_DESASOC_PROY" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.SP_RTGIND_DESASOC_PROY(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			                                      #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+	 							                  #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								             )}
+	</procedure>
+
+	<!-- SP_RTG_ACT_INDIV_CON_PROY -->
+	<!-- Actualiza la informacion de rating financiero PROYECTADO en el rating individual -->
+	<procedure id="sp_rtg_act_indiv_con_proy" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+			{call sefe.sp_rtg_act_indiv_con_proy(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			                                      #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			                                      #objEntrada.FECHA_RTG_FINAN,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+			                                      #objEntrada.NOTA_RATING,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+			                                      #objEntrada.ID_USUARIO,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+			                                      #objEntrada.ID_ESTADO,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+			                                      #objEntrada.ID_PROY,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+	 							                  #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								             )}
+	</procedure>
+	
+	<!-- Busca una nota financiera por tema, matriz, codigo de cuenta y valor -->
+	<procedure id="sp_rtg_buscar_rgo_nota_por_ind" parameterClass="ParametrizadorIbatis" resultMap="rangoNotaFinancieraMap">
+			{call sefe.SP_RTG_BUSCAR_RGO_NOTA_POR_IND(#objEntrada.ID_TEMA,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+												#objEntrada.ID_MATRIZ,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+												#objEntrada.COD_CUENTA,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+												#objEntrada.VALOR,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+												#objEntrada.INDICE_MIN,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+												#objEntrada.INDICE_MAX,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+												#objEntrada.fechaRating,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+												#objEntrada.estado,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+			                                    #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+	 								            )}
+	</procedure>
+	
+	<!-- RETORNA LA LISTA DE CUENTAS DE RATING UTILIZADAS PARA EL CALCULO DE LA PROYECCION -->
+	<procedure id="sp_rtg_buscar_valor_ctas" parameterClass="ParametrizadorIbatis" resultMap="valorCuentaMap" >
+				{call sefe.SP_RTG_BUSCAR_VALOR_CTAS(#objEntrada.idVaciado,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+												   #objEntrada.valorDef,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+											  	   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+	<!-- RETORNA LA LISTA DE FLAGS DE OPCIONALIDAD PARA LA CUENTA DE INGRESO DE LOS VACIADOS PROYECTADOS -->
+	<procedure id="sp_rtg_buscar_opc_ctas" parameterClass="ParametrizadorIbatis" resultMap="flagCuentaMap" >
+				{call sefe.SP_RTG_BUSCAR_OPC_PROY_2(#objEntrada.ID_PLAN_CTA,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+												   #objEntrada.ID_NOMBRE_PLAN,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+												   #objEntrada.ID_TPO_CTA,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+											  	   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+	<!-- Busca todos los premios por patrimonio de un segmento ordenados descendentemente por fecha efectiva -->
+	<procedure id="sp_rtg_buscar_prem_patr_x_seg" parameterClass="ParametrizadorIbatis" resultMap="premioPatrimonioMap" >
+				{call sefe.sp_rtg_buscar_prem_patr_x_seg(#objEntrada,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+											  	         #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+	<!-- Retorna todos los registros de la tabla ta_sefe_equiv_rtg (equivalencias de rating individual) -->
+	<procedure id="sp_rtg_buscar_equiv_rtg" parameterClass="ParametrizadorIbatis" resultMap="equivalenciaRatingMap" >
+				
+				{call sefe.sp_vi_rtg_buscar_equiv_rtg(#objEntrada,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+												   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+	<!-- Retorna un listado de vaciados anteriores a partir de un vaciado. Los vaciados retornados cumplen con las reglas y orden del rating financiero GGEE -->
+	<procedure id="sp_rtg_buscar_vac_ant_ggee" parameterClass="ParametrizadorIbatis" resultMap="vaciadoMap" >
+				{call sefe.sp_rtg_buscar_vac_ant_ggee(#objEntrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+				                                      #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+	<!-- Retorna un listado de vaciados anteriores a partir de un vaciado. Los vaciados retornados cumplen con las reglas y orden del rating financiero PyME -->
+	<procedure id="sp_rtg_finan_vac_ant_pyme" parameterClass="ParametrizadorIbatis" resultMap="vaciadoMap" >
+				{call sefe.sp_rtg_finan_obt_vac_ant_pyme(#objEntrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+				                                         #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+	
+	<!-- Retorna un listado de vaciados anteriores a partir de un vaciado. Los vaciados retornados cumplen con las reglas y orden del rating financiero PyME -->
+	<procedure id="sp_rtg_finan_vac_ant_generico" parameterClass="ParametrizadorIbatis" resultMap="vaciadoMap" >
+				{call sefe.SP_RTG_BUSCAR_VAC_ANT_GENERICO(#objEntrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+				                                          #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+	<procedure id="sp_buscarPonderaconNivelVetas" parameterClass="ParametrizadorIbatis" resultMap="resultNivelVenta">
+		{call sefe.SP_BUSCAR_POND_NVL_VENTAS(#objEntrada.idBanca,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+												#objEntrada.idTipoRating,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+												#objEntrada.idSegmento,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+												#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+												#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+												#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											   )}
+	</procedure>
+	
+	<!-- Busca los integrantes del rating grupal para PyME -->
+	<procedure id="sp_rtg_busc_reldos_grp_pyme" parameterClass="ParametrizadorIbatis" resultMap="integranteGrupoPyMEMap"><!--//Spring 01 requerimiento REQ:7.1.5 y  REQ:7.1.6-->
+		{call sefe.sp_rtg_busc_reldos_grp_pyme(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                       #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                       #objEntrada.ID_VERSION,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											   )}
+	</procedure>
+	<!-- Busca los integrantes del rating grupal para NO PyME -->
+	<procedure id="sp_rtg_busc_reldos_grp_nopyme" parameterClass="ParametrizadorIbatis" resultMap="integranteGrupoNoPyMEBancaMap">
+		{call sefe.sp_rtg_busc_reldos_grp_nopyme(#objEntrada.ID_GRUPO,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+												  #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											      )}
+	</procedure>
+	
+	<!-- Busca a un relacionado de un grupo de rating PYME en TA_SEFE_RTG_RELES_PYME por PK -->
+	<procedure id="sp_rtg_busc_rel_grp_pyme" parameterClass="ParametrizadorIbatis" resultMap="integranteGrupoPyMEMap">
+		{call sefe.sp_rtg_busc_rel_grp_pyme(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                    #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                    #objEntrada.ID_RELACION,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                    #objEntrada.RUT_REL,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                    #objEntrada.ID_VERSION,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+										    #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										   )}
+	</procedure>
+	
+	<!-- Busca a un relacionado de un grupo de rating NO PYME en TA_SEFE_REL_PARTE_INVOL_GP por PK -->
+	<procedure id="sp_rtg_busc_rel_grp_nopyme" parameterClass="ParametrizadorIbatis" resultMap="integranteGrupoNoPyMEMap">
+		{call sefe.sp_rtg_busc_rel_grp_nopyme(#objEntrada.ID_GRUPO,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                      #objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										      #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											 )}
+	</procedure>
+	
+	<!-- Actualiza la informacion de un relacionado de un grupo de rating pyme TA_SEFE_RTG_RELES_PYME -->
+	<procedure id="sp_rtg_act_rel_grp_pyme" parameterClass="ParametrizadorIbatis" resultMap="integranteGrupoPyMEMap">
+		{call sefe.sp_rtg_act_rel_grp_pyme(#objEntrada.idCliente,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                   #objEntrada.idRating,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                   #objEntrada.idRelacion,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                   #objEntrada.rutRelacionado,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                   #objEntrada.idVersion,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                   #objEntrada.prcParticipacion,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                   #objEntrada.deudaBanco,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                   #objEntrada.deudaSbif,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                   #objEntrada.ratingComportamiento,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                   #objEntrada.ratingFinanciero,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                   #objEntrada.ratingNegocio,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                   #objEntrada.deudaACHEL,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                   #objEntrada.ratingIndividual,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                   #objEntrada.puntajeCaritas,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                   #objEntrada.operaComoEmpresa,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                   #objEntrada.nombreRelacionado,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                   #objEntrada.clasificacionRiesgo,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,		                                   
+										   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										   )}
+	</procedure>
+	
+	<!-- Actualiza la informacion de un relacionado de un grupo de rating NO PyME TA_SEFE_REL_PARTE_INVOL_GP -->
+	<procedure id="sp_rtg_act_rel_grp_nopyme" parameterClass="ParametrizadorIbatis" resultMap="integranteGrupoNoPyMEMap">
+		{call sefe.sp_rtg_act_rel_grp_nopyme(#objEntrada.idGrupo,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                   #objEntrada.idCliente,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                   #objEntrada.fechaEfectiva,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#,
+		                                   #objEntrada.fechaFin,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#,
+		                                   #objEntrada.flagParticipa,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                   #objEntrada.flagAplica,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                   #objEntrada.prcParticipacion,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                   #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+                                           #objEntrada.activos,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+                                           #objEntrada.clasificacionRiesgo,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										   )}
+	</procedure>
+	
+	<!-- Agrega un nuevo grupo para NO PYME. Inserta un registro en TA_SEFE_GP -->
+	<procedure id="sp_rtg_add_nuevo_grp_nopyme" parameterClass="ParametrizadorIbatis" resultMap="grupoRtgMap">
+		{call sefe.sp_rtg_add_nuevo_grp_nopyme(#objEntrada.codigo,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                       #objEntrada.nombre,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                       #objEntrada.texto,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                       #objEntrada.idTipoGrupo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+										       #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										      )}
+	</procedure>
+	
+	<!-- Agrega un nuevo rating grupo para PYME. Inserta un registro en TA_SEFE_RTG_GP_PYME -->
+	<procedure id="sp_rtg_add_rtg_grp_pyme" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalPyME">
+		{call sefe.sp_rtg_add_rtg_grp_pyme(#objEntrada.idParteInvolucrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                     #objEntrada.idRatingIndividual,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                     #objEntrada.ponderador,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                     #objEntrada.nota,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                     #objEntrada.notaEmpresa,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                     #objEntrada.notaPersona,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                     #objEntrada.notaGrupal,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                     #objEntrada.ajusteConyuge,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                     #objEntrada.tipoPersona,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                     #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+		                                     #objEntrada.idEstado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                     #objEntrada.fecha,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#,
+		                                     #objEntrada.fechaActualizacionSiebel,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#,
+		                                     #objEntrada.ratingManual,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                     #objEntrada.idMotivo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                     #objEntrada.comentariosModif,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										     )}
+	</procedure>
+	
+	<!-- Agrega un nuevo relacionado para un grupo NO PYME. Inserta un registro en TA_SEFE_REL_PARTE_INVOL_GP -->
+	<procedure id="sp_rtg_add_rel_rtg_grp_nopyme" parameterClass="ParametrizadorIbatis" resultMap="integranteGrupoNoPyMEMap">
+		{call sefe.sp_rtg_add_rel_rtg_grp_nopyme(#objEntrada.idGrupo,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                     #objEntrada.idCliente,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                     #objEntrada.fechaEfectiva,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#,
+		                                     #objEntrada.fechaFin,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#,
+		                                     #objEntrada.flagParticipa,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                     #objEntrada.flagAplica,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                     #objEntrada.prcParticipacion,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                     #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+		                                     #objEntrada.activos,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                     #objEntrada.clasificacionRiesgo,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										     )}
+	</procedure>
+	
+	<!--//Spring 01 requerimiento REQ:7.1.5 y REQ:7.1.6-->
+	<!-- Agrega un nuevo relacionado para un grupo PYME. Inserta un registro en TA_SEFE_RTG_RELES_PYME -->
+	<procedure id="sp_rtg_add_rel_rtg_grp_pyme" parameterClass="ParametrizadorIbatis" resultMap="integranteGrupoPyMEMap">
+		{call sefe.sp_rtg_add_rel_rtg_grp_pyme(#objEntrada.idCliente,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                       #objEntrada.idRating,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                       #objEntrada.idVersion,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                       #objEntrada.idRelacion,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                       #objEntrada.rutRelacionado,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                       #objEntrada.prcParticipacion,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                       #objEntrada.deudaBanco,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                       #objEntrada.deudaSbif,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                       #objEntrada.ratingComportamiento,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                       #objEntrada.ratingProyectado,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,<!--//Spring 01 requerimiento REQ:7.1.5-->
+		                                       #objEntrada.ratingFinanciero,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                       #objEntrada.ratingNegocio,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                       #objEntrada.deudaACHEL,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                       #objEntrada.ratingIndividual,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                       #objEntrada.puntajeCaritas,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                       #objEntrada.operaComoEmpresa,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                       #objEntrada.nombreRelacionado,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                       #objEntrada.modeloRating,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,<!--//Spring 01 requerimiento REQ:7.1.6-->
+		                                       #objEntrada.clasificacionRiesgo,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,	
+							                   #objEntrada.ventas,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+							                   #objEntrada.fechaRatingIndividual,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+							                   #objEntrada.flagComportamientoActual,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										       #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										      )}
+	</procedure>
+	<!-- Busca el id del ultimo grupo en donde participo un cliente. NO PYME -->
+	<procedure id="sp_rtg_busc_ult_grp_nopyme" parameterClass="ParametrizadorIbatis">
+		{call sefe.sp_rtg_busc_ult_grp_nopyme(#objEntrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											  #objSalida.ID_GRUPO,javaType=java.lang.Long,jdbcType=INTEGER,mode=OUT#,
+											  #objSalida.FECHA,javaType=java.util.Date,jdbcType=DATE,mode=OUT#
+											  )}
+	</procedure>
+	
+	<!-- Busca el id del ultimo grupo en donde participo un cliente. PYME -->
+	<procedure id="sp_rtg_busc_ult_grp_pyme" parameterClass="ParametrizadorIbatis">
+		{call sefe.sp_rtg_busc_ult_grp_pyme(#objEntrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											  #objSalida.ID_CLIENTE,javaType=java.lang.Long,jdbcType=INTEGER,mode=OUT#,
+											  #objSalida.ID_RATING,javaType=java.lang.Long,jdbcType=INTEGER,mode=OUT#,
+											  #objSalida.ID_VERSION,javaType=java.lang.Long,jdbcType=INTEGER,mode=OUT#
+											  )}
+	</procedure>
+	
+	<!-- Agrega un nuevo registro en TA_SEFE_REL_GP_RTG(Modelo No PyME) -->
+	<procedure id="sp_rtg_add_rel_gp_rtg" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalNoPyME">
+		{call sefe.sp_rtg_add_rel_gp_rtg(#objEntrada.idRatingGrupal,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                 #objEntrada.nota,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                 #objEntrada.idEstado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                 #objEntrada.fecha,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#,
+		                                 #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+		                                 #objEntrada.fechaActualizacionSiebel,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#,
+										 #objEntrada.ratingManual,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+										 #objEntrada.idMotivo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+										 #objEntrada.comentariosModif,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										)}
+	</procedure>
+	
+	<!-- Busca un rating grupal PyME que se encuentre en algun estado en particular y asociado a un cliente -->
+	<procedure id="sp_rtg_busc_rtg_grp_x_est_pyme" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalPyME">
+		{call sefe.sp_rtg_busc_rtg_grp_x_est_pyme(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                          #objEntrada.ID_ESTADO,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+										          #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										          )}
+	</procedure>
+	
+	<!-- Busca un rating grupal NO PyME que se encuentre en algun estado en particular y asociado a un cliente -->
+	<procedure id="sp_rtg_busc_rtg_grp_x_est_nopy" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalNoPyME">
+		{call sefe.sp_rtg_busc_rtg_grp_x_est_nopy(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                          #objEntrada.ID_ESTADO,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+										          #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										          )}
+	</procedure>
+	
+	<!-- Elimina a un relacionado de un grupo para banca PyME -->
+	<procedure id="sp_rtg_del_rel_rtg_grp_pyme" parameterClass="ParametrizadorIbatis">
+		{call sefe.sp_rtg_del_rel_rtg_grp_pyme(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                       #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                       #objEntrada.RUT_REL,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                       #objEntrada.ID_RELACION,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                       #objEntrada.ID_VERSION,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#
+										       )}
+	</procedure>
+	
+	<!-- Elimina a un relacionado de un grupo para banca NO PyME -->
+	<procedure id="sp_rtg_del_rel_rtg_grp_nopyme" parameterClass="ParametrizadorIbatis">
+		{call sefe.sp_rtg_del_rel_rtg_grp_nopyme(#objEntrada.ID_GRUPO,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                       #objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                       #objEntrada.FECHA,javaType=java.util.Date,jdbcType=DATE,mode=IN#
+										       )}
+	</procedure>
+	
+	<!-- Requerimiento 7.1.3  -->
+	<procedure id="sp_rtg_act_rel_gp_rtg" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalNoPyMEMod">
+		{call sefe.SP_RTG_ACT_REL_GP_RTG(#objEntrada.idRatingGrupal,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                 #objEntrada.nota,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                 #objEntrada.idEstado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                 #objEntrada.fecha,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#,
+		                                 #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+		                                 #objEntrada.fechaActualizacionSiebel,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#,
+										 #objEntrada.ratingManual,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+										 #objEntrada.idMotivo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+										 #objEntrada.comentariosModif,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										 #objEntrada.comentarioGeneral,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										)}
+	</procedure>
+	
+	<procedure id="sp_rtg_busc_rel_gp_rtg" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalNoPyMEMod">
+		{call sefe.SP_RTG_BUSC_REL_GP_RTG(#objEntrada.ID_GRUPO,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										  #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										 )}
+	</procedure>
+	
+	<procedure id="sp_rtg_add_rel_rtg_gp_rtg" parameterClass="ParametrizadorIbatis" resultMap="relRatingIndRatingGrpNoPyMEMap">
+		{call sefe.sp_rtg_add_rel_rtg_gp_rtg(#objEntrada.idCliente,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											 #objEntrada.idRatingInd,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											 #objEntrada.idGrupo,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											 #objEntrada.fechaEfectiva,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+										     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										     )}
+	</procedure>
+	
+	<!-- Se agrega comentario geneneral por requerimiento 7.1.3 Spring 2 -->
+	<!-- Actualiza la info en la tabla ta_sefe_rtg_gp_pyme -->
+	<procedure id="sp_rtg_act_rtg_gp_pyme" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalPyMEMod">
+		{call sefe.SP_RTG_ACT_RTG_GP_PYME(#objEntrada.idParteInvolucrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                  #objEntrada.idRatingIndividual,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                  #objEntrada.idVersion,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                  #objEntrada.ponderador,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                  #objEntrada.nota,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                  #objEntrada.notaEmpresa,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                  #objEntrada.notaPersona,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                  #objEntrada.notaGrupal,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                  #objEntrada.ajusteConyuge,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                  #objEntrada.tipoPersona,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                  #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+		                                  #objEntrada.idEstado,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                  #objEntrada.fecha,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#,
+		                                  #objEntrada.fechaActualizacionSiebel,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+		                                  #objEntrada.ratingManual,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+		                                  #objEntrada.idMotivo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+		                                  #objEntrada.comentariosModif,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+		                                  #objEntrada.comentarioGeneral,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										  #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										  )}
+	</procedure>
+	
+	<!-- Busca un rating grupo pyme por pk -->
+	<procedure id="sp_rtg_busc_rtg_gp_pyme_x_id" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalPyMEMod">
+		{call sefe.SP_RTG_BUSC_RTG_GP_PYME_X_ID(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											    #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											    #objEntrada.ID_VERSION,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										        #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										        )}
+	</procedure>
+	
+	<!-- Busca un registro en ta_sefe_rel_rtg_gp_rtg (no pyme) por pk si se pasan los tres parametros o buscar por id del cliente y el grupo -->
+	<procedure id="sp_rtg_busc_rel_rtg_gp_rtg" parameterClass="ParametrizadorIbatis" resultMap="relRatingIndRatingGrpNoPyMEMap">
+		{call sefe.sp_rtg_busc_rel_rtg_gp_rtg(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											  #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+											  #objEntrada.ID_GRUPO,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										      #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										      )}
+	</procedure>
+	
+	<!-- Busca todos los vaciados vigentes que no superen la antiguedad maxima pasada como parametro.-->
+	<procedure id="sp_rtg_busc_vac_rtg_grupal" parameterClass="ParametrizadorIbatis" resultMap="vaciadoMap">
+		{call sefe.sp_rtg_busc_vac_rtg_grupal(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											  #objEntrada.ANTIGUEDAD,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+										      #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										      )}
+	</procedure>
+	
+	<!-- PYME. Busca todos los ratings grupales en donde se encuentre un relacionado. La busqueda puede ser por un estado en particular o todos los estados -->
+	<procedure id="sp_rtg_busc_rtg_grp_pyme_x_rel" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalPyMEModRel">
+		{call sefe.sp_rtg_busc_rtg_grp_pyme_x_rel(#objEntrada.RUT_REL,javaType=java.lang.String,jdbcType=NUMBER,mode=IN#,
+											      #objEntrada.ID_ESTADO,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+										          #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										          )}
+	</procedure>
+	
+	<!-- NO PYME. Busca todos los ratings grupales en donde se encuentre un relacionado. La busqueda puede ser por un estado en particular o todos los estados -->
+	<procedure id="sp_rtg_busc_rtg_grp_x_rel" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalNoPyMEMod">
+		{call sefe.sp_rtg_busc_rtg_grp_x_rel(#objEntrada.RUT_REL,javaType=java.lang.String,jdbcType=NUMBER,mode=IN#,
+											 #objEntrada.ID_ESTADO,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+										     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										     )}
+	</procedure>
+	
+	<!-- NO PYMe. Busca todos los ratings grupales en donde se utilia un rating individual. La busqueda puede ser por un estado en particular o todos los estados -->
+	<procedure id="sp_rtg_busc_rtg_grp_x_rtg_ind" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalNoPyME">
+		{call sefe.sp_rtg_busc_rtg_grp_x_rtg_ind(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											     #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.ID_ESTADO,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+										         #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										         )}
+	</procedure>
+	
+	<!-- PYMe. Busca todos los ratings grupales en donde se utilia un rating individual. La busqueda puede ser por un estado en particular o todos los estados -->
+	<procedure id="sp_rtg_busc_rtg_grp_pyme_x_ind" parameterClass="ParametrizadorIbatis" resultMap="ratingGrupalPyME">
+		{call sefe.sp_rtg_busc_rtg_grp_pyme_x_ind(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											      #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+											      #objEntrada.ID_ESTADO,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+										          #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										          )}
+	</procedure>
+	
+	<procedure id="sp_rtg_busc_rgo_nota_x_id" parameterClass="ParametrizadorIbatis" resultMap="rangoNotaFinancieraMap">
+		{call sefe.sp_rtg_busc_rgo_nota_x_id(#objEntrada.ID_RGO_NOTA,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											 #objEntrada.ID_MATRIZ,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											 #objEntrada.ID_TEMA,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											 #objEntrada.COD_CUENTA,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											 #objEntrada.fechaRating,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											 #objEntrada.estado,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+										     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										     )}
+	</procedure>
+	
+	<procedure id="sp_rtg_add_fort_debl" parameterClass="ParametrizadorIbatis" resultMap="mapTodoFortalezaDebilidad">
+		{call sefe.sp_rtg_add_fort_debl(#objEntrada.idCliente,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+									    #objEntrada.idRatingInd,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										#objEntrada.ambito,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										#objEntrada.idPreguntaInd,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+										#objEntrada.pregunta,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										#objEntrada.respuesta,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										#objEntrada.flgFortalezaDebilidad,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										#objEntrada.pesoRelativo,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+										#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										)}
+	</procedure>
+	
+	<procedure id="sp_rtg_borrar_fort_debl" parameterClass="ParametrizadorIbatis">
+		{call sefe.sp_rtg_borrar_fort_debl(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+									       #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										   #objEntrada.AMBITO,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#
+										   )}
+	</procedure>
+	
+	<procedure id="sp_rtg_get_fort_debl_x_ambito" parameterClass="ParametrizadorIbatis" resultMap="mapTodoFortalezaDebilidad">
+		{call sefe.sp_rtg_get_fort_debl_x_ambito(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+									             #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										         #objEntrada.AMBITO,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										         #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										         )}
+	</procedure>
+
+	<procedure id="sp_rtg_busc_rtg_ind_x_neg" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+		{call sefe.sp_rtg_busc_rtg_ind_x_neg(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											 #objEntrada.ID_RTG_NEG,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										     )}
+	</procedure>
+	
+	<procedure id="sp_rtg_busc_rtg_ind_x_comp" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+		{call sefe.sp_rtg_busc_rtg_ind_x_comp(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											  #objEntrada.ID_RTG_COMP,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										      #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										      )}
+	</procedure>
+
+	<procedure id="sp_rtg_busc_rtg_ind_x_proy" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+		{call sefe.sp_rtg_busc_rtg_ind_x_proy(#objEntrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										      #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										      )}
+	</procedure>
+	
+	<!-- Obtiene todos los parametros de configuracion de fortalezas y debilidades por banca y que se encuentren vigentes. -->
+	<procedure id="sp_rtg_get_conf_fort_deb_x_bca" parameterClass="ParametrizadorIbatis" resultMap="paramFortalezaDebilidad">
+		{call sefe.sp_rtg_get_conf_fort_deb_x_bca(#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+										          #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										          )}
+	</procedure>
+	
+	
+	<!--  Guarda el tipo de vaciado utililizado en la ultima evaluacion del rating de negocio -->
+	<procedure id="sp_upd_tpo_vac_rating_negocio" parameterClass="ParametrizadorIbatis" resultMap="RatingIndividualmap">
+		{call sefe.sp_upd_tpo_vac_rating_negocio(#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											  #objEntrada.ID_TPO_VAC,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+										      #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										      )}
+	</procedure>
+	
+		<!--  Guarda el tipo de vaciado utililizado en la ultima evaluacion del rating de negocio -->
+	<procedure id="sp_buscar_pond_periodos_matriz" parameterClass="ParametrizadorIbatis" resultMap="ponderacionMatrizFinanciera">
+		{call sefe.sp_buscar_pond_periodos_matriz(#objEntrada,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											  #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											  #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+										      #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+										      )}
+	</procedure>
+	
+	<!-- Busca el listado de vaciados que pueden ser utilizados para el calculo del rating financiero en el modelo generico -->
+	<procedure id="sp_RtgBuscarVaciadosRatingGenerico" parameterClass="ParametrizadorIbatis" resultMap="vaciadoMap">
+		{call sefe.SP_RTG_BUSCAR_VACIADOS_RATING(#objEntrada.rutCliente,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.antiguedadMax,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+											     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											 )}
+	</procedure>
+
+    <procedure id="sp_confirmarRatingGarante" parameterClass="ParametrizadorIbatis" resultMap="ratingGaranteMap">
+			  {call sefe.SP_RTG_CONFIRMAR_RTG_GARANTE(#objEntrada.ratingRelevante,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											   #objEntrada.ratingBCH,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+											   #objEntrada.empresaMatriz,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											   #objEntrada.usuarioId,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.clienteId,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											)}
+	</procedure>
+	
+    <procedure id="sp_guardarCalificacionGarante" parameterClass="ParametrizadorIbatis">
+		  {call sefe.SP_RTG_GUARDAR_CALIF_GARANTE(#objEntrada.idCliente,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.idGarante,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.idClasificadora,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.idRiesgo,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.fechaEfectiva,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=IN#
+											)}
+	</procedure>
+	
+    <procedure id="sp_buscarCalificacionGarante" parameterClass="ParametrizadorIbatis" resultMap="calificacionRiesgoMap">
+	  {call sefe.SP_RTG_BUSCAR_CALIF_GARANTE(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											)}
+	</procedure>
+	
+	<procedure id="sp_obtenerClasificacionesRiesgoHistorico" parameterClass="ParametrizadorIbatis" resultMap="clasificacionRiesgoMap">
+			{call sefe.Sp_Rtg_Obtener_Rgo_Historico(#objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											   #objEntrada.TIPO_CLASIF,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+											   #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+											)}
+	</procedure>
+	 <procedure id="sp_ins_balance_inmobiliario" parameterClass="ParametrizadorIbatis">
+		  {call sefe.SP_INS_BALANCE_INMOBILIARIO(#objEntrada.idParteInvol,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		  										 #objEntrada.fechaAvance,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+		  										 #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+											     #objEntrada.idMoneda,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.idUnidadMedida,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.tipoCambio,javaType=java.lang.Double,jdbcType=NUMBER,mode=IN#,
+											     #objEntrada.uf,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.deuSbif,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.deudaSistema,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.fechaSbif,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#
+											)}
+	</procedure>
+	<procedure id="sp_ins_hoja_balance_inmobiliario" parameterClass="ParametrizadorIbatis">
+		  {call sefe.SP_INS_HOJA_BALANCE_INMOB  (#objEntrada.idProyecto,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+		  										 #objEntrada.idParteInvol,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		  										 #objEntrada.fechaAvance,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+		  										 #objEntrada.nombre,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.ventaTotalProyectada,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.numeroUnidades,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.valorPromedio,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.avanceDeObra,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.fechaDeTermino,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+											     #objEntrada.lineaAprobada,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.deudaVigente,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.porGirar,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.deudaMaxima,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.mtoVentasEscrituradas,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+   											     #objEntrada.pctVentasEscrituradas,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.mtoPromesasDeVenta,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.pctPromesasDeVenta,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.mtoTotalVentas,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.pctTotalVentas,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.flujoRecibido,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.flujoCartasDeResguardo,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.flujoPorRecibirPromesas,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.deuNetaCartasDeResguardo,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.deuNetaVtaPromesas,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.saldoPorVenderPromesarUnidad,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.saldoPorVenderPromesarMonto,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.indiceExit,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.comuna,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.duracion,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.tipoProducto,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.primeraOSegundaVivienda,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.conslnMdo,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.experienciaMdo,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.constructora,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.experienciaConstructora,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.ofertaCompetencia,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.factor1,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.factor2,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.factor3,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.prcAvanceCronologico,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.tramoPrecioVenta,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.notaProducto,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.notaSegmento,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.flujosPorRecibir,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.dmaxPonderado,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.saldoPorConstructora,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.rgoConstructora,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,											     
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#
+											)}
+	</procedure>
+		 <procedure id="sp_ins_soe" parameterClass="ParametrizadorIbatis">
+		  {call sefe.SP_INS_SOE(#objEntrada.idParteInvol,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		  										 #objEntrada.fechaAvance,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+		  										 #objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=DOUBLE,mode=IN#,
+											     #objEntrada.idMoneda,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.idUnidadMedida,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.tipoCambio,javaType=java.lang.Double,jdbcType=DOUBLE,mode=IN#,
+											     #objEntrada.uf,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.seqRtg,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,	
+											     #objEntrada.deuSbif,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,										     
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#
+											)}
+	</procedure>
+	<procedure id="sp_ins_hoja_soe" parameterClass="ParametrizadorIbatis">
+		  {call sefe.SP_INS_HOJA_SOE  (#objEntrada.idContrato,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+		  										 #objEntrada.idParteInvol,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		  										 #objEntrada.fechaAvance,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+		  										 #objEntrada.nombre,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.descripcion,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.montoContrato,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.montoAvanceObra,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.saldoPorEjecutar,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.saldoPorCobrar,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.fechaInicio,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+											     #objEntrada.fechaTermino,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+											     #objEntrada.plazo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.avanceLineal,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.montoFinanciamientoBanco,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+   											     #objEntrada.tpoFinanciamientoBanco,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.banco,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.soeA1Ano,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.nombreMandante,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.mandante,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.prcAvanceObra,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.prcPorEjecutar,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.prcPorCobrar,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.prcLineal,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.prcSoeA1Ano,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.indiceAvanceObra,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.indiceSoeA1Ano,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.complejidadObra,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.knowHow,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.indiceDiversMandante,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.indiceDiversContrato,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.indiceDesaContrato,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.notaDesaContrato,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.complejidadContrato,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.indiceMaduracionContrato,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.soePorMandante,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,										     
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#
+											)}
+	</procedure>
+	
+	<procedure id="SP_BUSCAR_COMPONENTE_RATING" parameterClass="ParametrizadorIbatis" resultMap="componenteRatingMap">
+			{call sefe.SP_BUSCAR_COMPONENTE_RATING(#objEntrada.idBanca,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+											   	   #objEntrada.idComponente,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+											       #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											       #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+											       #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+
+	 <procedure id="SP_INS_IND_SOE" parameterClass="ParametrizadorIbatis">
+		  {call sefe.SP_INS_IND_SOE(#objEntrada.idParteInvol,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		  										 #objEntrada.fechaAvance,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+		  										 #objEntrada.indicador,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.valor,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.nota,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#											     
+											)}
+	</procedure>
+	<procedure id="SP_CONSULTA_BI_X_RUT" parameterClass="ParametrizadorIbatis" resultMap="biMap">
+			{call sefe.SP_CONSULTA_BI_X_RUT_TEM(#objEntrada.rutCliente,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											       #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											       #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+											       #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	 <procedure id="SP_INS_IND_BI" parameterClass="ParametrizadorIbatis">
+		  {call sefe.SP_INS_IND_BI(#objEntrada.idParteInvol,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		  										 #objEntrada.fechaAvance,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+		  										 #objEntrada.indicador,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+											     #objEntrada.valor,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objEntrada.nota,javaType=java.lang.Double,jdbcType=INTEGER,mode=IN#,
+											     #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+											     #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#											     
+											)}
+	</procedure>
+	
+	
+	
+	
+	
+	<procedure id="SP_ACT_USU_SOE_BI" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_ACT_USU_SOE_BI(#objEntrada.idUsuario,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+										 #objEntrada.idParteInvol,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										 #objEntrada.fechaAvance,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+										 #objEntrada.tabla,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										 #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+										 #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#)}
+	</procedure>
+	
+	<!-- sprint 4 req: 7.4.23 -->
+	
+	<procedure id="SP_ACT_DEU_SOE_BI" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_ACT_DEU_SOE_BI(#objEntrada.rutConsulta,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										 #objEntrada.deudaSistema,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										 #objEntrada.fechaAvance,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+										 #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+										 #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#)}
+	</procedure>
+	
+	<procedure id="SP_DEL_DETALLE_SOE_BI" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_DEL_DETALLE_SOE_BI(#objEntrada.idParteInvol,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										 #objEntrada.fechaAvance,javaType=java.util.Date,jdbcType=DATE,mode=IN#,
+										 #objEntrada.tabla,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										 #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+										 #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#)}
+	</procedure>
+	<procedure id="SP_CON_DEUDA_CTE_POR_FECHA" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_CON_DEUDA_CTE_POR_FECHA(#objEntrada.rutCliente,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										 #objEntrada.tipoConsulta,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+										 #objEntrada.FECHA,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+										 #objSalida.totalDeuda,javaType=java.lang.Double,jdbcType=INTEGER,mode=OUT#,
+										 #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+										 #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#)}
+	</procedure>
+	<procedure id="SP_OBTENER_MATRIZ_X_BANCA" parameterClass="ParametrizadorIbatis" resultMap="matrizFinancieraSoloIdMap">
+			{call sefe.SP_OBTENER_MATRIZ_X_BANCA(#objEntrada.ID_BANCA,javaType=java.lang.Integer,jdbcType=NUMBER,mode=IN#,
+										 #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+										 #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+										 #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+	<procedure id="sp_sel_probabilidad_default" resultMap="probDefaultMap" parameterClass="ParametrizadorIbatis">
+				{call sefe.sp_sel_probabilidad_default(#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+	<procedure id="sp_del_rtg_gp_pyme">
+				{call sefe.sp_del_rtg_gp_pyme(#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+					                          #objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                      #objEntrada.ID_VERSION,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#)}
+	</procedure>
+	<procedure id="SP_CONSULTA_FECHA_HOY" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_CONSULTA_FECHA_HOY(#objSalida.fechaHoy,javaType=java.util.Date,jdbcType=TIMESTAMP,mode=OUT#,
+										 #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+										 #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#)}
+	</procedure>
+	
+	<!-- sprint 2 req: 7.1.4 alinacion y borrado de rating -->
+	<procedure id="sp_vincular_rtg_ind_rtg_grp" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_VINCULAR_RTG_IND_RTG_GRP(#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+					                     #objEntrada.ID_CLIENTE,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+		                                 #objEntrada.ID_GRUPO,javaType=java.lang.Long,jdbcType=INTEGER,mode=IN#,
+		                                 #objEntrada.ID_RATING_OLD,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										 #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+										 #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#)}
+	</procedure>
+	
+	<!-- sprint 2 req: 7.1.4 alinacion y borrado de rating -->
+	<procedure id="SP_BORRAR_RATING_EN_CURSO" parameterClass="ParametrizadorIbatis">
+			{call sefe.SP_BORRAR_RTG_CURSO(#objEntrada.ID_RATING,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+										 #objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+										 #objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#)}
+	</procedure>
+	
+	<!-- sprint 3 7.4.29 -->
+	<procedure id="SP_SELECTPARAMETROSVIGENCIA" parameterClass="ParametrizadorIbatis" resultMap="ParametrosMap">
+		{call sefe.SP_SELECTPARAMETROSVIGENCIA(
+		#objEntrada.idBanca,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+									#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+									#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+									#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+		<!-- sprint 8 7.4.29 Multisegmento-->
+	<procedure id="SP_VIGENCIA_RTG_GRUPAL_MULTI" parameterClass="ParametrizadorIbatis" resultMap="ParametrosVigenciaMulti">
+		{call sefe.SP_VIGENCIA_RTG_GRUPAL_MULTI(
+			#objEntrada.RTG_ID,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+									#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+	<procedure id="SP_VIGENCIA_RTG_GRUPAL_MULTI_SOLO_PARTICIPA" parameterClass="ParametrizadorIbatis" resultMap="ParametrosVigenciaMultiSoloParticipa">
+		{call sefe.SP_VIGEN_RTG_GRUPL_MLT_PARTIC(
+			#objEntrada.RTG_ID,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,
+									#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+		<!-- sprint 8 7.4.29 PYME-->
+	<procedure id="SP_RTG_BUS_RTG_GRP_PYME_REL_VI" parameterClass="ParametrizadorIbatis" resultMap="ParametrosVigenciaPYME">
+		{call sefe.SP_RTG_BUS_RTG_GRP_PYME_REL_VI(
+			#objEntrada.RUT_REL,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+			#objEntrada.ESTADO_ID,javaType=java.lang.Integer,jdbcType=INTEGER,mode=IN#,
+			#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+	<!-- sprint 8 7.4.29 buscar parametros vigencia rtg grupal-->
+	<procedure id="SP_BUSC_PARAM_RTG_GRUPAL_VIG" parameterClass="ParametrizadorIbatis" resultMap="ParametrosVigenciaGrupal">
+		{call sefe.SP_BUSC_PARAM_RTG_GRUPAL_VIG(
+			#objEntrada.codigo_in,javaType=java.lang.String,jdbcType=VARCHAR,mode=IN#,
+			#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#)}
+	</procedure>
+	
+	<!-- Sprint 8 Rtg Grupal Req. 7.4.29  RTG MULTI NO INFORMADOS-->
+	<procedure id="SP_RTG_MULTI_MAN_NOINFORMADOS" parameterClass="ParametrizadorIbatis" resultMap="ParametrosVigenciaMULTI">
+			{call sefe.SP_RTG_MULTI_MAN_NOINFORMADOS (#objEntrada.ESTADO_ID,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,								
+											     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												)}
+		</procedure>
+	
+	<!-- Sprint 8 Parametrizar tipos de rating grupal  -->
+	<procedure id="SP_BUSCAR_MODIND_X_RTGGRUP" parameterClass="ParametrizadorIbatis" resultMap="ModIndRtgGrupalMap">
+		{call sefe.SP_ADM_CON_MODINDRTGGRUP(#objEntrada.tipo,javaType=java.lang.Long,mode=IN#,
+									#objSalida.codigo,javaType=java.lang.Integer,jdbcType=INTEGER,mode=OUT#,
+									#objSalida.mensaje,javaType=java.lang.String,jdbcType=VARCHAR,mode=OUT#,
+									#objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+		)}
+	</procedure>
+		
+		<!-- Sprint 8 Rtg Grupal Req. 7.4.29  RTG PYME NO INFORMADOS-->
+	<procedure id="SP_RTG_PYME_MAN_NOINFORMADOS" parameterClass="ParametrizadorIbatis" resultMap="ParametrosVigenciaPYME">
+			{call sefe.SP_RTG_PYME_MAN_NOINFORMADOS (#objEntrada.ESTADO_ID,javaType=java.lang.Long,jdbcType=NUMBER,mode=IN#,								
+											     #objSalida,javaType=java.sql.ResultSet,jdbcType=ORACLECURSOR,mode=OUT#
+												)}
+	</procedure>
+		
+		
+</sqlMap>
